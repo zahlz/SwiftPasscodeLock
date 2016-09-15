@@ -35,7 +35,7 @@ class PasscodeSettingsViewController: UIViewController {
     
     // MARK: - View
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updatePasscodeView()
@@ -45,8 +45,8 @@ class PasscodeSettingsViewController: UIViewController {
         
         let hasPasscode = configuration.repository.hasPasscode
         
-        changePasscodeButton.hidden = !hasPasscode
-        passcodeSwitch.on = hasPasscode
+        changePasscodeButton.isHidden = !hasPasscode
+        passcodeSwitch.isOn = hasPasscode
     }
     
     // MARK: - Actions
@@ -55,13 +55,12 @@ class PasscodeSettingsViewController: UIViewController {
         
         let passcodeVC: PasscodeLockViewController
         
-        if passcodeSwitch.on {
-            
-            passcodeVC = PasscodeLockViewController(state: .SetPasscode, configuration: configuration)
+        if passcodeSwitch.isOn {
+            passcodeVC = PasscodeLockViewController(state: .setPasscode, configuration: configuration)
             
         } else {
             
-            passcodeVC = PasscodeLockViewController(state: .RemovePasscode, configuration: configuration)
+            passcodeVC = PasscodeLockViewController(state: .removePasscode, configuration: configuration)
             
             passcodeVC.successCallback = { lock in
                 
@@ -69,7 +68,7 @@ class PasscodeSettingsViewController: UIViewController {
             }
         }
         
-        presentViewController(passcodeVC, animated: true, completion: nil)
+        present(passcodeVC, animated: true, completion: nil)
     }
     
     @IBAction func changePasscodeButtonTap(sender: UIButton) {
@@ -77,18 +76,18 @@ class PasscodeSettingsViewController: UIViewController {
         let repo = UserDefaultsPasscodeRepository()
         let config = PasscodeLockConfiguration(repository: repo)
         
-        let passcodeLock = PasscodeLockViewController(state: .ChangePasscode, configuration: config)
+        let passcodeLock = PasscodeLockViewController(state: .changePasscode, configuration: config)
         
-        presentViewController(passcodeLock, animated: true, completion: nil)
+        present(passcodeLock, animated: true, completion: nil)
     }
     
     @IBAction func testAlertButtonTap(sender: UIButton) {
         
-        let alertVC = UIAlertController(title: "Test", message: "", preferredStyle: .Alert)
+        let alertVC = UIAlertController(title: "Test", message: "", preferredStyle: .alert)
         
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
-        presentViewController(alertVC, animated: true, completion: nil)
+        present(alertVC, animated: true, completion: nil)
         
     }
     
@@ -97,9 +96,9 @@ class PasscodeSettingsViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: ["Test"], applicationActivities: nil)
         
         activityVC.popoverPresentationController?.sourceView = testActivityButton
-        activityVC.popoverPresentationController?.sourceRect = CGRectMake(10, 20, 0, 0)
+        activityVC.popoverPresentationController?.sourceRect = CGRect(x: 10, y: 20, width: 0, height: 0) //CGRectMake(10, 20, 0, 0)
         
-        presentViewController(activityVC, animated: true, completion: nil)
+        present(activityVC, animated: true, completion: nil)
     }
     
     @IBAction func dismissKeyboard() {

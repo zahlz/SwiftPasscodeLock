@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C99EAF431B90B05700D61E1B /* PasscodeLock.h in Headers */ = {isa = PBXBuildFile; fileRef = C99EAF421B90B05700D61E1B /* PasscodeLock.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C99EAF4A1B90B05800D61E1B /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */; settings = {ASSET_TAGS = (); }; };
-		C9D3DF0B1B919CE4008561EB /* PasscodeLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3DF0A1B919CE4008561EB /* PasscodeLockView.xib */; settings = {ASSET_TAGS = (); }; };
+		C99EAF4A1B90B05800D61E1B /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */; };
+		C9D3DF0B1B919CE4008561EB /* PasscodeLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3DF0A1B919CE4008561EB /* PasscodeLockView.xib */; };
 		C9D3DF131B91AD11008561EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF121B91AD11008561EB /* AppDelegate.swift */; };
 		C9D3DF151B91AD11008561EB /* PasscodeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF141B91AD11008561EB /* PasscodeSettingsViewController.swift */; };
 		C9D3DF181B91AD11008561EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D3DF161B91AD11008561EB /* Main.storyboard */; };
@@ -17,45 +17,45 @@
 		C9D3DF1D1B91AD11008561EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D3DF1B1B91AD11008561EB /* LaunchScreen.storyboard */; };
 		C9D3DF3E1B91AD7A008561EB /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */; };
 		C9D3DF3F1B91AD7A008561EB /* PasscodeLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9D3DF441B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF431B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift */; settings = {ASSET_TAGS = (); }; };
-		C9D3DF461B91BD0E008561EB /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF451B91BD0E008561EB /* PasscodeLockConfiguration.swift */; settings = {ASSET_TAGS = (); }; };
-		C9D3DF481B91F099008561EB /* PasscodeLockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF471B91F099008561EB /* PasscodeLockPresenter.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07D51B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07D61B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07D81B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07D91B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07DE1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07DF1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07E11B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07E21B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07E51B90BCF9007A4DD0 /* PasscodeLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E41B90BCF9007A4DD0 /* PasscodeLockTests.swift */; settings = {ASSET_TAGS = (); }; };
+		C9D3DF441B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF431B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift */; };
+		C9D3DF461B91BD0E008561EB /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF451B91BD0E008561EB /* PasscodeLockConfiguration.swift */; };
+		C9D3DF481B91F099008561EB /* PasscodeLockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF471B91F099008561EB /* PasscodeLockPresenter.swift */; };
+		C9DC07D51B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; };
+		C9DC07D61B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; };
+		C9DC07D81B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; };
+		C9DC07D91B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; };
+		C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; };
+		C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; };
+		C9DC07DE1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; };
+		C9DC07DF1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; };
+		C9DC07E11B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; };
+		C9DC07E21B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; };
+		C9DC07E51B90BCF9007A4DD0 /* PasscodeLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E41B90BCF9007A4DD0 /* PasscodeLockTests.swift */; };
 		C9DC07E71B90C382007A4DD0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DC07E61B90C382007A4DD0 /* LocalAuthentication.framework */; };
-		C9DC07EA1B90C690007A4DD0 /* FakePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E91B90C690007A4DD0 /* FakePasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07EC1B90C72A007A4DD0 /* FakePasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07EB1B90C72A007A4DD0 /* FakePasscodeRepository.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07EE1B90C7CD007A4DD0 /* FakePasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07ED1B90C7CD007A4DD0 /* FakePasscodeLockConfiguration.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07F01B90C8E1007A4DD0 /* FakePasscodeLockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07EF1B90C8E1007A4DD0 /* FakePasscodeLockDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07F21B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F11B90C9DE007A4DD0 /* EnterPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07F31B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F11B90C9DE007A4DD0 /* EnterPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07F81B90CF29007A4DD0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F71B90CF29007A4DD0 /* Functions.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07F91B90CF29007A4DD0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F71B90CF29007A4DD0 /* Functions.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC07FC1B90D0A3007A4DD0 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9DC07FA1B90D0A3007A4DD0 /* PasscodeLock.strings */; settings = {ASSET_TAGS = (); }; };
-		C9DC07FD1B90D0A3007A4DD0 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9DC07FA1B90D0A3007A4DD0 /* PasscodeLock.strings */; settings = {ASSET_TAGS = (); }; };
-		C9DC07FF1B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08001B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08021B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08031B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08051B90D394007A4DD0 /* ChangePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08041B90D394007A4DD0 /* ChangePasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08061B90D394007A4DD0 /* ChangePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08041B90D394007A4DD0 /* ChangePasscodeState.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08081B90DAE6007A4DD0 /* EnterPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08071B90DAE6007A4DD0 /* EnterPasscodeStateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC080A1B90DB09007A4DD0 /* FakePasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08091B90DB09007A4DD0 /* FakePasscodeLock.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC080C1B90DC38007A4DD0 /* SetPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080B1B90DC38007A4DD0 /* SetPasscodeStateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC080E1B90DC8F007A4DD0 /* ConfirmPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080D1B90DC8F007A4DD0 /* ConfirmPasscodeStateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08101B90DD91007A4DD0 /* ChangePasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080F1B90DD91007A4DD0 /* ChangePasscodeStateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08121B90DE1B007A4DD0 /* PasscodeSignPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08111B90DE1B007A4DD0 /* PasscodeSignPlaceholderView.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08141B90DE50007A4DD0 /* PasscodeSignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08131B90DE50007A4DD0 /* PasscodeSignButton.swift */; settings = {ASSET_TAGS = (); }; };
-		C9DC08161B90DF4E007A4DD0 /* PasscodeLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08151B90DF4E007A4DD0 /* PasscodeLockViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C9DC07EA1B90C690007A4DD0 /* FakePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E91B90C690007A4DD0 /* FakePasscodeState.swift */; };
+		C9DC07EC1B90C72A007A4DD0 /* FakePasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07EB1B90C72A007A4DD0 /* FakePasscodeRepository.swift */; };
+		C9DC07EE1B90C7CD007A4DD0 /* FakePasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07ED1B90C7CD007A4DD0 /* FakePasscodeLockConfiguration.swift */; };
+		C9DC07F01B90C8E1007A4DD0 /* FakePasscodeLockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07EF1B90C8E1007A4DD0 /* FakePasscodeLockDelegate.swift */; };
+		C9DC07F21B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F11B90C9DE007A4DD0 /* EnterPasscodeState.swift */; };
+		C9DC07F31B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F11B90C9DE007A4DD0 /* EnterPasscodeState.swift */; };
+		C9DC07F81B90CF29007A4DD0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F71B90CF29007A4DD0 /* Functions.swift */; };
+		C9DC07F91B90CF29007A4DD0 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07F71B90CF29007A4DD0 /* Functions.swift */; };
+		C9DC07FC1B90D0A3007A4DD0 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9DC07FA1B90D0A3007A4DD0 /* PasscodeLock.strings */; };
+		C9DC07FD1B90D0A3007A4DD0 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9DC07FA1B90D0A3007A4DD0 /* PasscodeLock.strings */; };
+		C9DC07FF1B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */; };
+		C9DC08001B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */; };
+		C9DC08021B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */; };
+		C9DC08031B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */; };
+		C9DC08051B90D394007A4DD0 /* ChangePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08041B90D394007A4DD0 /* ChangePasscodeState.swift */; };
+		C9DC08061B90D394007A4DD0 /* ChangePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08041B90D394007A4DD0 /* ChangePasscodeState.swift */; };
+		C9DC08081B90DAE6007A4DD0 /* EnterPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08071B90DAE6007A4DD0 /* EnterPasscodeStateTests.swift */; };
+		C9DC080A1B90DB09007A4DD0 /* FakePasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08091B90DB09007A4DD0 /* FakePasscodeLock.swift */; };
+		C9DC080C1B90DC38007A4DD0 /* SetPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080B1B90DC38007A4DD0 /* SetPasscodeStateTests.swift */; };
+		C9DC080E1B90DC8F007A4DD0 /* ConfirmPasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080D1B90DC8F007A4DD0 /* ConfirmPasscodeStateTests.swift */; };
+		C9DC08101B90DD91007A4DD0 /* ChangePasscodeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC080F1B90DD91007A4DD0 /* ChangePasscodeStateTests.swift */; };
+		C9DC08121B90DE1B007A4DD0 /* PasscodeSignPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08111B90DE1B007A4DD0 /* PasscodeSignPlaceholderView.swift */; };
+		C9DC08141B90DE50007A4DD0 /* PasscodeSignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08131B90DE50007A4DD0 /* PasscodeSignButton.swift */; };
+		C9DC08161B90DF4E007A4DD0 /* PasscodeLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC08151B90DF4E007A4DD0 /* PasscodeLockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -446,24 +446,31 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Yanko Dimitrov";
 				TargetAttributes = {
 					C99EAF3E1B90B05700D61E1B = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 					C99EAF481B90B05700D61E1B = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 					C9D3DF0F1B91AD11008561EB = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 6HPG35RJ6Y;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					C9D3DF221B91AD11008561EB = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = C9D3DF0F1B91AD11008561EB;
 					};
 					C9D3DF2D1B91AD12008561EB = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = C9D3DF0F1B91AD11008561EB;
 					};
 				};
@@ -674,11 +681,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -722,11 +731,13 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -743,6 +754,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -754,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -765,6 +778,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -772,6 +786,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -782,6 +797,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -795,6 +811,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PasscodeLockTests/PasscodeLockTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -807,19 +824,23 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PasscodeLockTests/PasscodeLockTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		C9D3DF361B91AD12008561EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6HPG35RJ6Y;
 				INFOPLIST_FILE = PasscodeLockDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -827,13 +848,16 @@
 		C9D3DF371B91AD12008561EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6HPG35RJ6Y;
 				INFOPLIST_FILE = PasscodeLockDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -847,6 +871,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PasscodeLockDemo.app/PasscodeLockDemo";
 			};
 			name = Debug;
@@ -860,6 +885,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PasscodeLockDemo.app/PasscodeLockDemo";
 			};
 			name = Release;
@@ -872,6 +898,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = PasscodeLockDemo;
 				USES_XCTRUNNER = YES;
 			};
@@ -885,6 +912,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yankodimitrov.PasscodeLockDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = PasscodeLockDemo;
 				USES_XCTRUNNER = YES;
 			};
