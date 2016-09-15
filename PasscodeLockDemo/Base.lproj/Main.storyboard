@@ -25,14 +25,12 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mm8-A7-rJo">
                                 <connections>
-                                    <action selector="passcodeSwitchValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="jNq-f0-MQm"/>
                                     <action selector="passcodeSwitchValueChangeWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="hjc-C2-VKB"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hX3-sK-N1u">
                                 <state key="normal" title="Change Passcode"/>
                                 <connections>
-                                    <action selector="changePasscodeButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NuA-mw-aCy"/>
                                     <action selector="changePasscodeButtonTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ch-hg-Lqe"/>
                                 </connections>
                             </button>
@@ -45,7 +43,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWy-5L-Ls0">
                                 <state key="normal" title="Test with Activity VC"/>
                                 <connections>
-                                    <action selector="testActivityButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ep-zy-BSy"/>
                                     <action selector="testActivityButtonTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kno-RA-rDS"/>
                                 </connections>
                             </button>
