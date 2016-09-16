@@ -9,6 +9,10 @@
 import Foundation
 import PasscodeLock
 
+public enum PasscodeError: Error {
+    case noPasscode
+}
+
 class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
     
     private let passcodeKey = "passcode.lock.passcode"
@@ -26,7 +30,7 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
         return false
     }
     
-    var passcode: String? {
+    private var passcode: String? {
         
         return defaults.value(forKey: passcodeKey) as? String ?? nil
     }
@@ -35,6 +39,11 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
         
         defaults.set(passcode, forKey: passcodeKey)
         defaults.synchronize()
+    }
+    
+    func checkPasscode(_ passcode: String) throws -> Bool {
+        guard hasPasscode else { throw PasscodeError.noPasscode }
+        return self.passcode == passcode
     }
     
     func deletePasscode() {

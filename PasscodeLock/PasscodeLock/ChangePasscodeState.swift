@@ -23,19 +23,19 @@ struct ChangePasscodeState: PasscodeLockStateType {
     
     func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
         
-        guard let currentPasscode = lock.repository.passcode else {
+        do {
+            if try lock.repository.checkPasscode(passcode) {
+            
+                let nextState = SetPasscodeState()
+            
+                lock.changeStateTo(nextState)
+            
+            } else {
+            
+                lock.delegate?.passcodeLockDidFail(lock)
+            }
+        } catch {
             return
-        }
-        
-        if passcode == currentPasscode {
-            
-            let nextState = SetPasscodeState()
-            
-            lock.changeStateTo(nextState)
-            
-        } else {
-            
-            lock.delegate?.passcodeLockDidFail(lock)
         }
     }
 }

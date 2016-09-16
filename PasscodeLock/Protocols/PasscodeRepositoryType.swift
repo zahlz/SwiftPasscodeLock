@@ -11,8 +11,8 @@ import Foundation
 public protocol PasscodeRepositoryType {
     
     var hasPasscode: Bool { get }
-    var passcode: String? { get }
     
     func savePasscode(_ passcode: String)
+    func checkPasscode(_ passcode: String) throws -> Bool
     func deletePasscode()
 }

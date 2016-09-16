@@ -29,24 +29,25 @@ struct EnterPasscodeState: PasscodeLockStateType {
     
     mutating func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
         
-        guard let currentPasscode = lock.repository.passcode else {
-            return
-        }
-        
-        if passcode == currentPasscode {
+        do {
+            if try lock.repository.checkPasscode(passcode) {
             
-            lock.delegate?.passcodeLockDidSucceed(lock)
+                lock.delegate?.passcodeLockDidSucceed(lock)
             
-        } else {
+            } else {
             
-            inccorectPasscodeAttempts += 1
+                inccorectPasscodeAttempts += 1
             
-            if inccorectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
+                if inccorectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
                 
-                postNotification()
-            }
+                    postNotification()
+                }
             
-            lock.delegate?.passcodeLockDidFail(lock)
+                lock.delegate?.passcodeLockDidFail(lock)
+            }
+        } catch {
+            print(error)
+            return
         }
     }
     
