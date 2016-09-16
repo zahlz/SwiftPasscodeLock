@@ -29,7 +29,7 @@ class PasscodeLockTests: XCTestCase {
             
             var called = false
             
-            override func passcodeLockDidChangeState(lock: PasscodeLockType) {
+            override func passcodeLockDidChangeState(_ lock: PasscodeLockType) {
                 
                 called = true
             }
@@ -51,7 +51,7 @@ class PasscodeLockTests: XCTestCase {
             var called = false
             var signIndex = 0
             
-            override func passcodeLock(lock: PasscodeLockType, addedSignAtIndex index: Int) {
+            override func passcodeLock(_ lock: PasscodeLockType, addedSignAt index: Int) {
                 
                 called = true
                 signIndex = index
@@ -78,7 +78,7 @@ class PasscodeLockTests: XCTestCase {
             var called = false
             var signIndex = 0
             
-            override func passcodeLock(lock: PasscodeLockType, removedSignAtIndex index: Int) {
+            override func passcodeLock(_ lock: PasscodeLockType, removedSignAt index: Int) {
                 
                 called = true
                 signIndex = index
@@ -102,11 +102,10 @@ class PasscodeLockTests: XCTestCase {
     
     func testCallStateToAcceptTheEnteredPasscode() {
         
-        let passcode = ["0", "1", "2", "3"]
+        let passcode = "0123"
         
-        for sign in passcode {
-            
-            passcodeLock.addSign(sign)
+        for sign in passcode.characters {
+            passcodeLock.addSign(String(sign))
         }
         
         XCTAssertEqual(initialState.acceptPaccodeCalled, true, "When the passcode length is reached should call the current state to accept the entered passcode")
@@ -116,17 +115,17 @@ class PasscodeLockTests: XCTestCase {
     
     func testResetSigns() {
         
-        let passcodeOne = ["0", "1", "2", "3"]
-        let passcodeTwo = ["9", "8", "7", "6"]
+        let passcodeOne = "0123" //["0", "1", "2", "3"]
+        let passcodeTwo = "9876" //["9", "8", "7", "6"]
         
-        for sign in passcodeOne {
+        for sign in passcodeOne.characters {
             
-            passcodeLock.addSign(sign)
+            passcodeLock.addSign(String(sign))
         }
         
-        for sign in passcodeTwo {
+        for sign in passcodeTwo.characters {
             
-            passcodeLock.addSign(sign)
+            passcodeLock.addSign(String(sign))
         }
         
         XCTAssertEqual(initialState.numberOfAcceptedPasscodes, 2, "Should call the accept passcode twice")

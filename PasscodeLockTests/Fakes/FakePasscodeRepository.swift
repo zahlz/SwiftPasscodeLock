@@ -11,14 +11,14 @@ import Foundation
 class FakePasscodeRepository: PasscodeRepositoryType {
     
     var hasPasscode: Bool { return true }
-    var passcode: [String]? { return fakePasscode }
+    var passcode: String? { return fakePasscode }
     
-    var fakePasscode = ["1", "2", "3", "4"]
+    var fakePasscode = "1234" //["1", "2", "3", "4"]
     
     var savePasscodeCalled = false
-    var savedPasscode = [String]()
+    var savedPasscode = String()
     
-    func savePasscode(passcode: [String]) {
+    func savePasscode(_ passcode: String) {
         
         savePasscodeCalled = true
         savedPasscode = passcode

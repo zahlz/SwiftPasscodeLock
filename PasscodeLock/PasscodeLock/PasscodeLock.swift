@@ -27,7 +27,7 @@ open class PasscodeLock: PasscodeLockType {
     }
     
     fileprivate var lockState: PasscodeLockStateType
-    fileprivate lazy var passcode = [String]()
+    fileprivate lazy var passcode = String()
     
     public init(state: PasscodeLockStateType, configuration: PasscodeLockConfigurationType) {
         
@@ -40,21 +40,21 @@ open class PasscodeLock: PasscodeLockType {
     open func addSign(_ sign: String) {
         
         passcode.append(sign)
-        delegate?.passcodeLock(self, addedSignAtIndex: passcode.count - 1)
+        delegate?.passcodeLock(self, addedSignAt: passcode.characters.count - 1)
         
-        if passcode.count >= configuration.passcodeLength {
+        if passcode.characters.count >= configuration.passcodeLength {
             
-            lockState.acceptPasscode(passcode, fromLock: self)
+            lockState.acceptPasscode(passcode, from: self)
             passcode.removeAll(keepingCapacity: true)
         }
     }
     
     open func removeSign() {
         
-        guard passcode.count > 0 else { return }
-        
-        passcode.removeLast()
-        delegate?.passcodeLock(self, removedSignAtIndex: passcode.count)
+        guard passcode.characters.count > 0 else { return }
+        passcode.remove(at: passcode.index(before: passcode.endIndex))
+        //passcode.removeLast()
+        delegate?.passcodeLock(self, removedSignAt: passcode.utf8.count)
     }
     
     open func changeStateTo(_ state: PasscodeLockStateType) {

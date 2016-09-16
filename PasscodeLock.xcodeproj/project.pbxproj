@@ -197,6 +197,7 @@
 		C99EAF351B90B05700D61E1B = {
 			isa = PBXGroup;
 			children = (
+				C9DC07E61B90C382007A4DD0 /* LocalAuthentication.framework */,
 				C99EAF411B90B05700D61E1B /* PasscodeLock */,
 				C99EAF4D1B90B05800D61E1B /* PasscodeLockTests */,
 				C9D3DF111B91AD11008561EB /* PasscodeLockDemo */,
@@ -224,7 +225,6 @@
 				C9DC07D21B90B1CE007A4DD0 /* Protocols */,
 				C9DC07D11B90B1CE007A4DD0 /* PasscodeLock */,
 				C9DC07D31B90B1CE007A4DD0 /* Views */,
-				C9DC07E61B90C382007A4DD0 /* LocalAuthentication.framework */,
 				C99EAF421B90B05700D61E1B /* PasscodeLock.h */,
 				C99EAF441B90B05700D61E1B /* Info.plist */,
 				C9DC07F71B90CF29007A4DD0 /* Functions.swift */,

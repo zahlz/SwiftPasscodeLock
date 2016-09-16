@@ -178,7 +178,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
             
         // if pushed in a navigation controller
         } else if navigationController != nil {
-            navigationController?.popViewController(animated: animateOnDismiss)
+            _ = navigationController?.popViewController(animated: animateOnDismiss)
         }
         
         dismissCompletionCallback?()
@@ -254,13 +254,13 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         deleteSignButton?.isEnabled = false
     }
     
-    open func passcodeLock(_ lock: PasscodeLockType, addedSignAtIndex index: Int) {
+    open func passcodeLock(_ lock: PasscodeLockType, addedSignAt index: Int) {
         
         animatePlacehodlerAtIndex(index, toState: .active)
         deleteSignButton?.isEnabled = true
     }
     
-    open func passcodeLock(_ lock: PasscodeLockType, removedSignAtIndex index: Int) {
+    open func passcodeLock(_ lock: PasscodeLockType, removedSignAt index: Int) {
         
         animatePlacehodlerAtIndex(index, toState: .inactive)
         

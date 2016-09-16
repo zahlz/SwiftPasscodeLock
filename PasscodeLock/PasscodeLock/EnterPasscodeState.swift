@@ -27,7 +27,7 @@ struct EnterPasscodeState: PasscodeLockStateType {
         description = localizedStringFor("PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
-    mutating func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeLockType) {
+    mutating func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
         
         guard let currentPasscode = lock.repository.passcode else {
             return
