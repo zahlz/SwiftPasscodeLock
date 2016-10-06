@@ -18,8 +18,8 @@ public protocol PasscodeLockType {
     
     func addSign(_ sign: String)
     func removeSign()
-    func changeStateTo(_ state: PasscodeLockStateType)
-    func authenticateWithBiometrics()
+    func changeState(_ state: PasscodeLockStateType)
+    func authenticateWithTouchID()
 }
 
 public protocol PasscodeLockTypeDelegate: class {

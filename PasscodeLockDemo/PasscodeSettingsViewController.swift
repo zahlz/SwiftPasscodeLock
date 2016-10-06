@@ -64,7 +64,7 @@ class PasscodeSettingsViewController: UIViewController {
             
             passcodeVC.successCallback = { lock in
                 
-                lock.repository.deletePasscode()
+                lock.repository.delete()
             }
         }
         
@@ -96,7 +96,7 @@ class PasscodeSettingsViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: ["Test"], applicationActivities: nil)
         
         activityVC.popoverPresentationController?.sourceView = testActivityButton
-        activityVC.popoverPresentationController?.sourceRect = CGRect(x: 10, y: 20, width: 0, height: 0) //CGRectMake(10, 20, 0, 0)
+        activityVC.popoverPresentationController?.sourceRect = CGRect(x: 10, y: 20, width: 0, height: 0)
         
         present(activityVC, animated: true, completion: nil)
     }

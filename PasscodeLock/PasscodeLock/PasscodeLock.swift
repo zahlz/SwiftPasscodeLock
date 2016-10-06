@@ -44,7 +44,7 @@ open class PasscodeLock: PasscodeLockType {
         
         if passcode.characters.count >= configuration.passcodeLength {
             
-            lockState.acceptPasscode(passcode, from: self)
+            lockState.accept(passcode: passcode, from: self)
             passcode.removeAll(keepingCapacity: true)
         }
     }
@@ -57,13 +57,13 @@ open class PasscodeLock: PasscodeLockType {
         delegate?.passcodeLock(self, removedSignAt: passcode.utf8.count)
     }
     
-    open func changeStateTo(_ state: PasscodeLockStateType) {
+    open func changeState(_ state: PasscodeLockStateType) {
         
         lockState = state
         delegate?.passcodeLockDidChangeState(self)
     }
     
-    open func authenticateWithBiometrics() {
+    open func authenticateWithTouchID() {
         
         guard isTouchIDAllowed else { return }
         

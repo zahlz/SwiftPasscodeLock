@@ -21,14 +21,14 @@ struct ChangePasscodeState: PasscodeLockStateType {
         description = localizedStringFor("PasscodeLockChangeDescription", comment: "Change passcode description")
     }
     
-    func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLockType) {
         
         do {
-            if try lock.repository.checkPasscode(passcode) {
+            if try lock.repository.check(passcode: passcode) {
             
                 let nextState = SetPasscodeState()
             
-                lock.changeStateTo(nextState)
+                lock.changeState(nextState)
             
             } else {
             

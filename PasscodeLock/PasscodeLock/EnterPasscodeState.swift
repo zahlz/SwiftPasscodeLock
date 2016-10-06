@@ -27,10 +27,10 @@ struct EnterPasscodeState: PasscodeLockStateType {
         description = localizedStringFor("PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
-    mutating func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
+    mutating func accept(passcode: String, from lock: PasscodeLockType) {
         
         do {
-            if try lock.repository.checkPasscode(passcode) {
+            if try lock.repository.check(passcode: passcode) {
             
                 lock.delegate?.passcodeLockDidSucceed(lock)
             
@@ -54,10 +54,8 @@ struct EnterPasscodeState: PasscodeLockStateType {
     fileprivate mutating func postNotification() {
         
         guard !isNotificationSent else { return }
-            
-        let center = NotificationCenter.default
         
-        center.post(name: Notification.Name(rawValue: PasscodeLockIncorrectPasscodeNotification), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: PasscodeLockIncorrectPasscodeNotification), object: nil)
         
         isNotificationSent = true
     }

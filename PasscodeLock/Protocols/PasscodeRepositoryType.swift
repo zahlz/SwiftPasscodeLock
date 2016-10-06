@@ -12,7 +12,7 @@ public protocol PasscodeRepositoryType {
     
     var hasPasscode: Bool { get }
     
-    func savePasscode(_ passcode: String)
-    func checkPasscode(_ passcode: String) throws -> Bool
-    func deletePasscode()
+    func save(passcode: String)
+    func check(passcode: String) throws -> Bool
+    func delete()
 }

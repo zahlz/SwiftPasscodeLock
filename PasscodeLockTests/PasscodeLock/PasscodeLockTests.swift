@@ -104,9 +104,7 @@ class PasscodeLockTests: XCTestCase {
         
         let passcode = "0123"
         
-        for sign in passcode.characters {
-            passcodeLock.addSign(String(sign))
-        }
+        passcode.characters.forEach { passcodeLock.addSign }
         
         XCTAssertEqual(initialState.acceptPaccodeCalled, true, "When the passcode length is reached should call the current state to accept the entered passcode")
         XCTAssertEqual(initialState.acceptedPasscode, passcode, "Should return the entered passcode")
@@ -118,15 +116,9 @@ class PasscodeLockTests: XCTestCase {
         let passcodeOne = "0123" //["0", "1", "2", "3"]
         let passcodeTwo = "9876" //["9", "8", "7", "6"]
         
-        for sign in passcodeOne.characters {
-            
-            passcodeLock.addSign(String(sign))
-        }
+        passcodeOne.characters.forEach { passcodeLock.addSign }
         
-        for sign in passcodeTwo.characters {
-            
-            passcodeLock.addSign(String(sign))
-        }
+        passcodeTwo.characters.forEach { passcodeLock.addSign }
         
         XCTAssertEqual(initialState.numberOfAcceptedPasscodes, 2, "Should call the accept passcode twice")
         XCTAssertEqual(initialState.acceptedPasscode, passcodeTwo, "Shpuld return the last entered passcode")

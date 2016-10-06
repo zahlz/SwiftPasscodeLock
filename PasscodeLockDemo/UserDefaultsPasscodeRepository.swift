@@ -35,18 +35,18 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
         return defaults.value(forKey: passcodeKey) as? String ?? nil
     }
     
-    func savePasscode(_ passcode: String) {
+    func save(passcode: String) {
         
         defaults.set(passcode, forKey: passcodeKey)
         defaults.synchronize()
     }
     
-    func checkPasscode(_ passcode: String) throws -> Bool {
+    func check(passcode: String) throws -> Bool {
         guard hasPasscode else { throw PasscodeError.noPasscode }
         return self.passcode == passcode
     }
     
-    func deletePasscode() {
+    func delete() {
         
         defaults.removeObject(forKey: passcodeKey)
         defaults.synchronize()

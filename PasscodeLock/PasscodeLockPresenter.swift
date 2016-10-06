@@ -42,7 +42,7 @@ open class PasscodeLockPresenter {
         self.init(mainWindow: window, configuration: configuration, viewController: passcodeLockVC)
     }
     
-    open func presentPasscodeLock() {
+    open func present() { //presentPasscodeLock() {
         
         guard passcodeConfiguration.repository.hasPasscode else { return }
         guard !isPasscodePresented else { return }
@@ -62,13 +62,13 @@ open class PasscodeLockPresenter {
             
             userDismissCompletionCallback?()
             
-            self?.dismissPasscodeLock()
+            self?.dismiss()
         }
         
         passcodeLockWindow.rootViewController = passcodeLockVC
     }
     
-    open func dismissPasscodeLock(animated: Bool = true) {
+    open func dismiss(animated: Bool = true) { //PasscodeLock(animated: Bool = true) {
         
         isPasscodePresented = false
         mainWindow?.windowLevel = 1

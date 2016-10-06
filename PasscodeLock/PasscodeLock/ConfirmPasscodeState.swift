@@ -24,11 +24,11 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
         description = localizedStringFor("PasscodeLockConfirmDescription", comment: "Confirm passcode description")
     }
     
-    func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLockType) {
         
         if passcode == passcodeToConfirm {
             
-            lock.repository.savePasscode(passcode)
+            lock.repository.save(passcode: passcode)
             lock.delegate?.passcodeLockDidSucceed(lock)
         
         } else {
@@ -38,7 +38,7 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
             
             let nextState = SetPasscodeState(title: mismatchTitle, description: mismatchDescription)
             
-            lock.changeStateTo(nextState)
+            lock.changeState(nextState)
             lock.delegate?.passcodeLockDidFail(lock)
         }
     }

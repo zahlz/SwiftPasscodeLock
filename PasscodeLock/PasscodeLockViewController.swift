@@ -94,7 +94,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         
         if shouldTryToAuthenticateWithBiometrics {
         
-            authenticateWithBiometrics()
+            authenticateWithTouchID()
         }
     }
     
@@ -122,7 +122,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     
     open func appWillEnterForegroundHandler(_ notification: Notification) {
         
-        authenticateWithBiometrics()
+        authenticateWithTouchID()
     }
     
     open func appDidEnterBackgroundHandler(_ notification: Notification) {
@@ -151,14 +151,14 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     
     @IBAction func touchIDButtonTap(_ sender: UIButton) {
         
-        passcodeLock.authenticateWithBiometrics()
+        passcodeLock.authenticateWithTouchID()
     }
     
-    fileprivate func authenticateWithBiometrics() {
+    fileprivate func authenticateWithTouchID() {
         
         if passcodeConfiguration.shouldRequestTouchIDImmediately && passcodeLock.isTouchIDAllowed {
             
-            passcodeLock.authenticateWithBiometrics()
+            passcodeLock.authenticateWithTouchID()
         }
     }
     
@@ -177,7 +177,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
             return
             
         // if pushed in a navigation controller
-        } else if navigationController != nil {
+        } else {
             _ = navigationController?.popViewController(animated: animateOnDismiss)
         }
         
@@ -218,10 +218,8 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     
     internal func animatePlaceholders(_ placeholders: [PasscodeSignPlaceholderView], toState state: PasscodeSignPlaceholderView.State) {
         
-        for placeholder in placeholders {
-            
-            placeholder.animateState(state)
-        }
+        placeholders.forEach { $0.animateState(state) }
+        
     }
     
     fileprivate func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
