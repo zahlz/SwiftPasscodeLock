@@ -1,4 +1,6 @@
 # PasscodeLock
+[![Build Status](https://travis-ci.org/zahlz/SwiftPasscodeLock.svg?branch=master)](https://travis-ci.org/zahlz/SwiftPasscodeLock)
+
 A Swift implementation of passcode lock for iOS with TouchID authentication.
 
 <img src="https://raw.githubusercontent.com/yankodimitrov/SwiftPasscodeLock/master/passcode-lock.gif" height="386">
