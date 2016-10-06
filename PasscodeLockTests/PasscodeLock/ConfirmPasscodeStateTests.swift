@@ -41,14 +41,14 @@ class ConfirmPasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.acceptPasscode(passcodeToConfirm, from: passcodeLock)
+        passcodeState.accept(passcode: passcodeToConfirm, from: passcodeLock)
         
         XCTAssertEqual(delegate.called, true, "Should call the delegate when the passcode is correct")
     }
     
     func testAcceptCorrectPasscodeWillSaveThePasscode() {
         
-        passcodeState.acceptPasscode(passcodeToConfirm, from: passcodeLock)
+        passcodeState.accept(passcode: passcodeToConfirm, from: passcodeLock)
         
         XCTAssertEqual(repository.savePasscodeCalled, true, "Should call the repository to save the new passcode")
         XCTAssertEqual(repository.savedPasscode, passcodeToConfirm, "Should save the confirmed passcode")
@@ -75,7 +75,7 @@ class ConfirmPasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.acceptPasscode("12", from: passcodeLock)
+        passcodeState.accept(passcode: "12", from: passcodeLock)
         
         XCTAssertEqual(passcodeLock.changeStateCalled, true, "Should change the state")
         XCTAssert(passcodeLock.state is SetPasscodeState, "Should change the state to SetPasscodeState")

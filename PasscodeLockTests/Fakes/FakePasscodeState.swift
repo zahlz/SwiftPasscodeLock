@@ -21,7 +21,7 @@ class FakePasscodeState: PasscodeLockStateType {
     
     init() {}
     
-    func acceptPasscode(_ passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLockType) {
         
         acceptedPasscode = passcode
         acceptPaccodeCalled = true

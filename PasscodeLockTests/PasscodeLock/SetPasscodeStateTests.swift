@@ -40,7 +40,7 @@ class SetPasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.acceptPasscode(repository.fakePasscode, from: passcodeLock)
+        passcodeState.accept(passcode: repository.fakePasscode, from: passcodeLock)
         
         XCTAssert(passcodeLock.state is ConfirmPasscodeState, "Should change the state to ConfirmPasscodeState")
         XCTAssertEqual(delegate.didChangedState, true, "Should inform the delegate for the state change")
