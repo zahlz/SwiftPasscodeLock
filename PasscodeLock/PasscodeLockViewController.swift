@@ -67,6 +67,10 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     public convenience init(state: LockState, configuration: PasscodeLockConfigurationType, animateOnDismiss: Bool = true) {
         
         self.init(state: state.getState(), configuration: configuration, animateOnDismiss: animateOnDismiss)
+        
+        if state == .remove {
+            self.successCallback = { lock in lock.repository.delete() }
+        }
     }
     
     public required init(coder aDecoder: NSCoder) {

@@ -17,7 +17,15 @@ struct EnterPasscodeState: PasscodeLockStateType {
     let isCancellableAction: Bool
     var isTouchIDAllowed = true
     
-    fileprivate var inccorectPasscodeAttempts = 0
+    fileprivate var incorrectPasscodeAttemptsKey = "incorrectPasscodeAttemps"
+    private var incorrectPasscodeAttempts: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: incorrectPasscodeAttemptsKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: incorrectPasscodeAttemptsKey)
+        }
+    }
     fileprivate var isNotificationSent = false
     
     init(allowCancellation: Bool = false) {
@@ -28,26 +36,22 @@ struct EnterPasscodeState: PasscodeLockStateType {
     }
     
     mutating func accept(passcode: String, from lock: PasscodeLockType) {
+        if lock.repository.check(passcode: passcode) {
         
-        do {
-            if try lock.repository.check(passcode: passcode) {
+            lock.delegate?.passcodeLockDidSucceed(lock)
             
-                lock.delegate?.passcodeLockDidSucceed(lock)
+            incorrectPasscodeAttempts = 0
+        
+        } else {
+        
+            incorrectPasscodeAttempts += 1
+        
+            if incorrectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
             
-            } else {
-            
-                inccorectPasscodeAttempts += 1
-            
-                if inccorectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
-                
-                    postNotification()
-                }
-            
-                lock.delegate?.passcodeLockDidFail(lock)
+                postNotification()
             }
-        } catch {
-            print(error)
-            return
+        
+            lock.delegate?.passcodeLockDidFail(lock)
         }
     }
     
