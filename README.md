@@ -4,32 +4,32 @@ A Swift implementation of passcode lock for iOS with TouchID authentication.
 <img src="https://raw.githubusercontent.com/yankodimitrov/SwiftPasscodeLock/master/passcode-lock.gif" height="386">
 
 ## Installation
-PasscodeLock requires Swift 2.0 and Xcode 7
+PasscodeLock requires Swift 3.0 and Xcode 8
 
 #### Carthage
 
 Add the following line to your [Cartfile](https://github.com/carthage/carthage)
 ```swift
-github "yankodimitrov/SwiftPasscodeLock"
+github "zahlz/SwiftPasscodeLock"
 ```
 ## Usage
 
 1. Create an implementation of the `PasscodeRepositoryType` protocol.
 
-2. Create an implementation of the `PasscodeLockConfigurationType` protocol and set your preferred passcode lock configuration options. If you set the `maximumInccorectPasscodeAttempts` to a number greather than zero when the user reaches that number of incorrect passcode attempts a notification with name `PasscodeLockIncorrectPasscodeNotification` will be posted on the default `NSNotificationCenter`. 
+2. Create an implementation of the `PasscodeLockConfigurationType` protocol and set your preferred passcode lock configuration options. If you set the `maximumInccorectPasscodeAttempts` to a number greather than zero when the user reaches that number of incorrect passcode attempts a notification with name `PasscodeLockIncorrectPasscodeNotification` will be posted on the default `NotificationCenter`. 
 
 3. Create an instance of the `PasscodeLockPresenter` class. Next inside your `UIApplicationDelegate` implementation call it to present the passcode in `didFinishLaunchingWithOptions` and `applicationDidEnterBackground` methods. The passcode lock will be presented only if your user has set a passcode.
 
-4. Allow your users to set a passcode by presenting the `PasscodeLockViewController` in `.SetPasscode` state:
+4. Allow your users to set a passcode by presenting the `PasscodeLockViewController` in `.set` state:
 ```swift
 let configuration = ... // your implementation of the PasscodeLockConfigurationType protocol
 
-let passcodeVC = PasscodeLockViewController(state: .SetPasscode, configuration: configuration)
+let passcodeVC = PasscodeLockViewController(state: .set, configuration: configuration)
 
 presentViewController(passcodeVC, animated: true, completion: nil)
 ```
 
-You can present the `PasscodeLockViewController` in one of the four initial states using the `LockState` enumeration options: `.EnterPasscode`, `.SetPasscode`, `.ChangePasscode`, `.RemovePasscode`.
+You can present the `PasscodeLockViewController` in one of the four initial states using the `LockState` enumeration options: `.enter`, `.set`, `.change`, `.remove`.
 
 Also you can set the initial passcode lock state to your own implementation of the `PasscodeLockStateType` protocol.
 
@@ -51,4 +51,4 @@ Take a look at `PasscodeLock/en.lproj/PasscodeLock.strings` for the localization
 
 ## Demo App
 
-The demo app comes with a simple implementation of the `PasscodeRepositoryType` protocol that is using the **NSUserDefaults** to store an retrieve the passcode. In your real applications you will probably want to use the **Keychain API**. Keep in mind that the **Keychain** records will not be removed when your user deletes your app.
+The demo app comes with a simple implementation of the `PasscodeRepositoryType` protocol that is using the **UserDefaults** to store an retrieve the passcode. In your real applications you will probably want to use the **Keychain API**. Keep in mind that the **Keychain** records will not be removed when your user deletes your app.
