@@ -28,7 +28,7 @@ class FakePasscodeRepository: PasscodeRepositoryType {
         
     }
     
-    func check(passcode: String) throws -> Bool {
+    func check(passcode: String) -> Bool {
         return passcode == fakePasscode
     }
 }

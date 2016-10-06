@@ -41,8 +41,7 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
         defaults.synchronize()
     }
     
-    func check(passcode: String) throws -> Bool {
-        guard hasPasscode else { throw PasscodeError.noPasscode }
+    func check(passcode: String) -> Bool {
         return self.passcode == passcode
     }
     

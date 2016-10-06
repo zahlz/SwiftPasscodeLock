@@ -1,21 +1,20 @@
 //
-//  EnterPasscodeState.swift
+//  RemovePasscodeState.swift
 //  PasscodeLock
 //
-//  Created by Yanko Dimitrov on 8/28/15.
-//  Copyright © 2015 Yanko Dimitrov. All rights reserved.
+//  Created by Kevin Seidel on 06/10/16.
+//  Copyright © 2016 Yanko Dimitrov. All rights reserved.
 //
 
 import Foundation
 
-public let PasscodeLockIncorrectPasscodeNotification = "passcode.lock.incorrect.passcode.notification"
-
-struct EnterPasscodeState: PasscodeLockStateType {
-    
+struct RemovePasscodeState: PasscodeLockStateType {
     let title: String
     let description: String
-    let isCancellableAction: Bool
-    var isTouchIDAllowed = true
+    let isCancellableAction = false
+    var isTouchIDAllowed: Bool { return false }
+    
+    private var isNotificationSent = false
     
     fileprivate var incorrectPasscodeAttemptsKey = "incorrectPasscodeAttemps"
     private var incorrectPasscodeAttempts: Int {
@@ -26,31 +25,31 @@ struct EnterPasscodeState: PasscodeLockStateType {
             UserDefaults.standard.set(newValue, forKey: incorrectPasscodeAttemptsKey)
         }
     }
-    fileprivate var isNotificationSent = false
     
-    init(allowCancellation: Bool = false) {
+    init() {
         
-        isCancellableAction = allowCancellation
         title = localizedStringFor("PasscodeLockEnterTitle", comment: "Enter passcode title")
         description = localizedStringFor("PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
     mutating func accept(passcode: String, from lock: PasscodeLockType) {
         if lock.repository.check(passcode: passcode) {
-        
+            
+            lock.repository.delete()
+            
             lock.delegate?.passcodeLockDidSucceed(lock)
             
             incorrectPasscodeAttempts = 0
-        
-        } else {
-        
-            incorrectPasscodeAttempts += 1
-        
-            if incorrectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
             
+        } else {
+            
+            incorrectPasscodeAttempts += 1
+            
+            if incorrectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
+                
                 postNotification()
             }
-        
+            
             lock.delegate?.passcodeLockDidFail(lock)
         }
     }
@@ -63,4 +62,5 @@ struct EnterPasscodeState: PasscodeLockStateType {
         
         isNotificationSent = true
     }
+
 }

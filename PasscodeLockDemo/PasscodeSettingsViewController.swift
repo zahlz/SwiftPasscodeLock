@@ -56,16 +56,13 @@ class PasscodeSettingsViewController: UIViewController {
         let passcodeVC: PasscodeLockViewController
         
         if passcodeSwitch.isOn {
+            
             passcodeVC = PasscodeLockViewController(state: .set, configuration: configuration)
             
         } else {
             
             passcodeVC = PasscodeLockViewController(state: .remove, configuration: configuration)
-            
-            passcodeVC.successCallback = { lock in
-                
-                lock.repository.delete()
-            }
+   
         }
         
         present(passcodeVC, animated: true, completion: nil)
