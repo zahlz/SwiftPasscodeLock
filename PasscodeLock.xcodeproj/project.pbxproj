@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A526E151DA6786200114A5E /* RemovePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A526E141DA6786200114A5E /* RemovePasscodeState.swift */; };
 		C99EAF431B90B05700D61E1B /* PasscodeLock.h in Headers */ = {isa = PBXBuildFile; fileRef = C99EAF421B90B05700D61E1B /* PasscodeLock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C99EAF4A1B90B05800D61E1B /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */; };
 		C9D3DF0B1B919CE4008561EB /* PasscodeLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D3DF0A1B919CE4008561EB /* PasscodeLockView.xib */; };
@@ -104,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A526E141DA6786200114A5E /* RemovePasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePasscodeState.swift; sourceTree = "<group>"; };
 		C99EAF3F1B90B05700D61E1B /* PasscodeLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PasscodeLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99EAF421B90B05700D61E1B /* PasscodeLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasscodeLock.h; sourceTree = "<group>"; };
 		C99EAF441B90B05700D61E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */,
 				C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */,
 				C9DC08041B90D394007A4DD0 /* ChangePasscodeState.swift */,
+				0A526E141DA6786200114A5E /* RemovePasscodeState.swift */,
 			);
 			path = PasscodeLock;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				C9DC07FF1B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */,
 				C9DC08051B90D394007A4DD0 /* ChangePasscodeState.swift in Sources */,
 				C9DC08021B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */,
+				0A526E151DA6786200114A5E /* RemovePasscodeState.swift in Sources */,
 				C9DC08121B90DE1B007A4DD0 /* PasscodeSignPlaceholderView.swift in Sources */,
 				C9DC07F21B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */,
 				C9DC08141B90DE50007A4DD0 /* PasscodeSignButton.swift in Sources */,
