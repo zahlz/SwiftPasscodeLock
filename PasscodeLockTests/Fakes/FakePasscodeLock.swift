@@ -33,14 +33,14 @@ class FakePasscodeLock: PasscodeLockType {
         
     }
     
-    func changeStateTo(_ state: PasscodeLockStateType) {
+    func changeState(_ state: PasscodeLockStateType) {
         
         lockState = state
         changeStateCalled = true
         delegate?.passcodeLockDidChangeState(self)
     }
     
-    func authenticateWithBiometrics() {
+    func authenticateWithTouchID() {
         
     }
 }
