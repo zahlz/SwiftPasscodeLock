@@ -2,10 +2,5 @@ language: objective-c
 osx_image: xcode8
 xcode_project: PasscodeLock.xcodeproj
 xcode_scheme: PasscodeLock
-before_script:
-- brew uninstall carthage
-- brew install carthage
-- carthage checkout --no-use-binaries
-- travis_retry carthage build --platform iOS
 script:
 - set -o pipefail && xcodebuild test -project PasscodeLock.xcodeproj -scheme "PasscodeLock" -sdk iphonesimulator10.0 -destination "platform=iOS Simulator,OS=10.0,name=iPhone 7 Plus" ONLY_ACTIVE_ARCH=NO | xcpretty
