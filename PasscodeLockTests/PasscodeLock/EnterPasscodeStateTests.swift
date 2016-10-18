@@ -13,10 +13,10 @@ class NotificaionObserver: NSObject {
     var called = false
     var callCounter = 0
     
-    func observe(notification: String) {
+    func observe(notification: Notification.Name) {
         
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(self.handle), name: Notification.Name(rawValue: notification), object: nil)
+        center.addObserver(self, selector: #selector(self.handle), name: notification, object: nil)
     }
     
     func handle(notification: Notification) {
@@ -86,7 +86,7 @@ class EnterPasscodeStateTests: XCTestCase {
     func testIncorrectPasscodeNotification() {
         
         let observer = NotificaionObserver()
-        
+
         observer.observe(notification: PasscodeLockIncorrectPasscodeNotification)
         
         passcodeState.accept(passcode: "0", from: passcodeLock)
@@ -99,7 +99,7 @@ class EnterPasscodeStateTests: XCTestCase {
     func testIncorrectPasscodeSendNotificationOnce() {
         
         let observer = NotificaionObserver()
-        
+
         observer.observe(notification: PasscodeLockIncorrectPasscodeNotification)
         
         passcodeState.accept(passcode: "0", from: passcodeLock)
