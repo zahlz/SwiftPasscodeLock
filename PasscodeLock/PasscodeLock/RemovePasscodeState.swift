@@ -58,7 +58,7 @@ struct RemovePasscodeState: PasscodeLockStateType {
         
         guard !isNotificationSent else { return }
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: PasscodeLockIncorrectPasscodeNotification), object: nil)
+        NotificationCenter.default.post(name: PasscodeLockIncorrectPasscodeNotification, object: nil)
         
         isNotificationSent = true
     }

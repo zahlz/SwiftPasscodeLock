@@ -25,9 +25,7 @@ struct ChangePasscodeState: PasscodeLockStateType {
         
         if lock.repository.check(passcode: passcode) {
         
-            let nextState = SetPasscodeState()
-        
-            lock.changeState(nextState)
+            lock.changeState(SetPasscodeState())
         
         } else {
         

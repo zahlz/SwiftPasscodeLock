@@ -8,7 +8,7 @@
 
 import Foundation
 
-public let PasscodeLockIncorrectPasscodeNotification = "passcode.lock.incorrect.passcode.notification"
+public let PasscodeLockIncorrectPasscodeNotification = Notification.Name("passcode.lock.incorrect.passcode.notification")
 
 struct EnterPasscodeState: PasscodeLockStateType {
     
@@ -59,7 +59,7 @@ struct EnterPasscodeState: PasscodeLockStateType {
         
         guard !isNotificationSent else { return }
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: PasscodeLockIncorrectPasscodeNotification), object: nil)
+        NotificationCenter.default.post(name: PasscodeLockIncorrectPasscodeNotification, object: nil)
         
         isNotificationSent = true
     }
