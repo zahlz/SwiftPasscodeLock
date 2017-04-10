@@ -16,6 +16,13 @@ open class PasscodeSignPlaceholderView: UIView {
         case active
         case error
     }
+
+    @IBInspectable
+    open var cornerRadius: CGFloat = 8 {
+        didSet {
+            setupView()
+        }
+    }
     
     @IBInspectable
     open var inactiveColor: UIColor = UIColor.white {
@@ -57,7 +64,7 @@ open class PasscodeSignPlaceholderView: UIView {
     
     fileprivate func setupView() {
         
-        layer.cornerRadius = 8
+        layer.cornerRadius = cornerRadius
         layer.borderWidth = 1
         layer.borderColor = activeColor.cgColor
         backgroundColor = inactiveColor
