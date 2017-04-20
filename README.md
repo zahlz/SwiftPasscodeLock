@@ -1,10 +1,7 @@
 # PasscodeLock
-<center>
 [![Build Status](https://travis-ci.org/zahlz/SwiftPasscodeLock.svg?branch=master)](https://travis-ci.org/zahlz/SwiftPasscodeLock)
-[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://apple.com/ios)
 [![Swift3](https://img.shields.io/badge/swift3-compatible-brightgreen.svg)](https://apple.com/ios)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-</center>
 
 A Swift implementation of passcode lock for iOS with TouchID authentication.
 
