@@ -1,0 +1,40 @@
+/*
+ PasscodeLock.strings
+ PasscodeLock
+
+ Перевёл Ярослав Ерохин github/ysoftware
+ Created by Yanko Dimitrov on 8/28/15.
+ Copyright (c) 2015 Yanko Dimitrov. All rights reserved.
+ */
+
+/* Enter Passcode State */
+"PasscodeLockEnterTitle" = "Введите пароль";
+"PasscodeLockEnterDescription" = "Введите пароль, чтобы войти.";
+
+/* Set Passcode State */
+"PasscodeLockSetTitle" = "Введите пароль";
+"PasscodeLockSetDescription" = "Введите новый пароль.";
+
+/* Confirm Passcode State */
+"PasscodeLockConfirmTitle" = "Подтвердите пароль";
+"PasscodeLockConfirmDescription" = "Введите пароль ещё раз.";
+
+/* Change Passcode State */
+"PasscodeLockChangeTitle" = "Введите старый пароль.";
+"PasscodeLockChangeDescription" = "Введите ваш старый пароль.";
+
+/* Passcode Mismatch State */
+"PasscodeLockMismatchTitle" = "Попробуйте ещё раз.";
+"PasscodeLockMismatchDescription" = "Пароли должны совпадать.";
+
+/* Cancel Button Title */
+"PasscodeLockCancelButtonTitle" = "Отмена";
+
+/* Delete Button Title */
+"PasscodeLockDeleteButtonTitle" = "Удалить";
+
+/* Touch ID Reason */
+"PasscodeLockTouchIDReason" = "Необходимо подтвердить личность.";
+
+/* Touch ID Fallback Button */
+"PasscodeLockTouchIDButton" = "Ввести пароль.";

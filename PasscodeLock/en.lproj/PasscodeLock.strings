@@ -31,6 +31,7 @@
 
 /* Delete Button Title */
 "PasscodeLockDeleteButtonTitle" = "Delete";
+
 /* Touch ID Reason */
 "PasscodeLockTouchIDReason" = "Authentication required to proceed";
 
