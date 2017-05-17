@@ -8,19 +8,19 @@
 
 import Foundation
 
-func localizedStringFor(_ key: String, comment: String) -> String {
-    
+func localizedStringFor(key: String, comment: String) -> String {
+
     let name = "PasscodeLock"
-    let bundle = bundleForResource(name, ofType: "strings")
-    
-    return NSLocalizedString(key, tableName: name, bundle: bundle, comment: comment)
+    let defaultString = NSLocalizedString(key, tableName: name, bundle: NSBundle(forClass: PasscodeLock.self), comment: comment)
+
+    return NSLocalizedString(key, value: defaultString, tableName: name, bundle: NSBundle.mainBundle(), comment: comment)
 }
 
-func bundleForResource(_ name: String, ofType type: String) -> Bundle {
-    
-    if(Bundle.main.path(forResource: name, ofType: type) != nil) {
-        return Bundle.main
+func bundleForResource(name: String, ofType type: String) -> NSBundle {
+
+    if(NSBundle.mainBundle().pathForResource(name, ofType: type) != nil) {
+        return NSBundle.mainBundle()
     }
-    
-    return Bundle(for: PasscodeLock.self)
+
+    return NSBundle(forClass: PasscodeLock.self)
 }
