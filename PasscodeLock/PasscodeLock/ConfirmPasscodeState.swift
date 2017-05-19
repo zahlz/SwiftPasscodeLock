@@ -20,8 +20,8 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
     init(passcode: String) {
         
         passcodeToConfirm = passcode
-        title = localizedStringFor("PasscodeLockConfirmTitle", comment: "Confirm passcode title")
-        description = localizedStringFor("PasscodeLockConfirmDescription", comment: "Confirm passcode description")
+        title = localizedStringFor(key: "PasscodeLockConfirmTitle", comment: "Confirm passcode title")
+        description = localizedStringFor(key: "PasscodeLockConfirmDescription", comment: "Confirm passcode description")
     }
     
     func accept(passcode: String, from lock: PasscodeLockType) {
@@ -33,8 +33,8 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
         
         } else {
             
-            let mismatchTitle = localizedStringFor("PasscodeLockMismatchTitle", comment: "Passcode mismatch title")
-            let mismatchDescription = localizedStringFor("PasscodeLockMismatchDescription", comment: "Passcode mismatch description")
+            let mismatchTitle = localizedStringFor(key: "PasscodeLockMismatchTitle", comment: "Passcode mismatch title")
+            let mismatchDescription = localizedStringFor(key: "PasscodeLockMismatchDescription", comment: "Passcode mismatch description")
             
             lock.changeState(SetPasscodeState(title: mismatchTitle, description: mismatchDescription))
             

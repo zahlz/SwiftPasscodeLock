@@ -31,8 +31,8 @@ struct EnterPasscodeState: PasscodeLockStateType {
     init(allowCancellation: Bool = false) {
         
         isCancellableAction = allowCancellation
-        title = localizedStringFor("PasscodeLockEnterTitle", comment: "Enter passcode title")
-        description = localizedStringFor("PasscodeLockEnterDescription", comment: "Enter passcode description")
+        title = localizedStringFor(key: "PasscodeLockEnterTitle", comment: "Enter passcode title")
+        description = localizedStringFor(key: "PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
     mutating func accept(passcode: String, from lock: PasscodeLockType) {
