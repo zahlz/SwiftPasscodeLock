@@ -68,9 +68,9 @@ open class PasscodeLock: PasscodeLockType {
         guard isTouchIDAllowed else { return }
         
         let context = LAContext()
-        let reason = localizedStringFor("PasscodeLockTouchIDReason", comment: "TouchID authentication reason")
+        let reason = localizedStringFor(key: "PasscodeLockTouchIDReason", comment: "TouchID authentication reason")
 
-        context.localizedFallbackTitle = localizedStringFor("PasscodeLockTouchIDButton", comment: "TouchID authentication fallback button")
+        context.localizedFallbackTitle = localizedStringFor(key: "PasscodeLockTouchIDButton", comment: "TouchID authentication fallback button")
         
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
             success, error in

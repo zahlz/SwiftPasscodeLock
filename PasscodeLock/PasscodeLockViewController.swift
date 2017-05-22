@@ -56,7 +56,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeLock = PasscodeLock(state: state, configuration: configuration)
         
         let nibName = "PasscodeLockView"
-        let bundle: Bundle = bundleForResource(nibName, ofType: "nib")
+        let bundle: Bundle = bundleForResource(name: nibName, ofType: "nib")
         
         super.init(nibName: nibName, bundle: bundle)
         
@@ -86,6 +86,9 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         
         updatePasscodeView()
         deleteSignButton?.isEnabled = false
+
+        cancelButton?.setTitle(localizedStringFor(key: "PasscodeLockCancelButtonTitle", comment: "Cancel Button Title"), for: .normal)
+        deleteSignButton?.setTitle(localizedStringFor(key: "PasscodeLockDeleteButtonTitle", comment: "Delete Button Title"), for: .normal)
         
         setupEvents()
     }

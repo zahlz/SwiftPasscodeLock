@@ -17,8 +17,8 @@ struct ChangePasscodeState: PasscodeLockStateType {
     
     init() {
         
-        title = localizedStringFor("PasscodeLockChangeTitle", comment: "Change passcode title")
-        description = localizedStringFor("PasscodeLockChangeDescription", comment: "Change passcode description")
+        title = localizedStringFor(key: "PasscodeLockChangeTitle", comment: "Change passcode title")
+        description = localizedStringFor(key: "PasscodeLockChangeDescription", comment: "Change passcode description")
     }
     
     func accept(passcode: String, from lock: PasscodeLockType) {
