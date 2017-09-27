@@ -15,7 +15,7 @@ open class PasscodeSignButton: UIButton {
     open var passcodeSign: String = "1"
     
     @IBInspectable
-    open var borderColor: UIColor = UIColor.white {
+    open var borderColor: UIColor = .white {
         didSet {
             setupView()
         }
@@ -29,64 +29,53 @@ open class PasscodeSignButton: UIButton {
     }
     
     @IBInspectable
-    open var highlightBackgroundColor: UIColor = UIColor.clear {
+    open var highlightBackgroundColor: UIColor = .clear {
         didSet {
             setupView()
         }
     }
     
     public override init(frame: CGRect) {
-        
         super.init(frame: frame)
-        
         setupView()
         setupActions()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
-        
         setupActions()
     }
     
     open override var intrinsicContentSize : CGSize {
-        
         return CGSize(width: 60, height: 60)
     }
     
-    fileprivate var defaultBackgroundColor = UIColor.clear
+    private var defaultBackgroundColor: UIColor = .clear
     
-    fileprivate func setupView() {
-        
+    private func setupView() {
         layer.borderWidth = 1
         layer.cornerRadius = borderRadius
         layer.borderColor = borderColor.cgColor
         
         if let backgroundColor = backgroundColor {
-            
             defaultBackgroundColor = backgroundColor
         }
     }
     
-    fileprivate func setupActions() {
-        
+    private func setupActions() {
         addTarget(self, action: #selector(PasscodeSignButton.handleTouchDown), for: .touchDown)
         addTarget(self, action: #selector(PasscodeSignButton.handleTouchUp), for: [.touchUpInside, .touchDragOutside, .touchCancel])
     }
     
     @objc func handleTouchDown() {
-        
         animateBackgroundColor(highlightBackgroundColor)
     }
     
     @objc func handleTouchUp() {
-        
         animateBackgroundColor(defaultBackgroundColor)
     }
     
-    fileprivate func animateBackgroundColor(_ color: UIColor) {
-        
+    private func animateBackgroundColor(_ color: UIColor) {
         UIView.animate(
             withDuration: 0.3,
             delay: 0.0,
@@ -94,7 +83,6 @@ open class PasscodeSignButton: UIButton {
             initialSpringVelocity: 0.0,
             options: [.allowUserInteraction, .beginFromCurrentState],
             animations: {
-                
                 self.backgroundColor = color
             },
             completion: nil

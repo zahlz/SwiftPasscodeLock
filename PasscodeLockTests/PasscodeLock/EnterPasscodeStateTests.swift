@@ -20,7 +20,6 @@ class NotificaionObserver: NSObject {
     }
     
     @objc func handle(notification: Notification) {
-        
         called = true
         callCounter += 1
     }

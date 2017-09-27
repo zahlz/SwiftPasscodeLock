@@ -10,16 +10,15 @@ import UIKit
 
 open class PasscodeLockPresenter {
     
-    fileprivate var mainWindow: UIWindow?
+    private var mainWindow: UIWindow?
     
-    fileprivate lazy var passcodeLockWindow = UIWindow(frame: UIScreen.main.bounds)
+    private lazy var passcodeLockWindow = UIWindow(frame: UIScreen.main.bounds)
         
-    fileprivate let passcodeConfiguration: PasscodeLockConfigurationType
+    private let passcodeConfiguration: PasscodeLockConfigurationType
     open var isPasscodePresented = false
     open let passcodeLockVC: PasscodeLockViewController
     
     public init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType, viewController: PasscodeLockViewController) {
-        
         mainWindow = window
         passcodeConfiguration = configuration
         
@@ -27,16 +26,12 @@ open class PasscodeLockPresenter {
     }
 
     public convenience init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType) {
-        
         let passcodeLockVC = PasscodeLockViewController(state: .enter, configuration: configuration)
-        
         self.init(mainWindow: window, configuration: configuration, viewController: passcodeLockVC)
     }
     
     open func present() {
-        
-        guard passcodeConfiguration.repository.hasPasscode else { return }
-        guard !isPasscodePresented else { return }
+        guard passcodeConfiguration.repository.hasPasscode && !isPasscodePresented else { return }
         
         isPasscodePresented = true
 
@@ -47,9 +42,7 @@ open class PasscodeLockPresenter {
         let userDismissCompletionCallback = passcodeLockVC.dismissCompletionCallback
         
         passcodeLockVC.dismissCompletionCallback = { [weak self] in
-            
             userDismissCompletionCallback?()
-            
             self?.dismiss()
         }
         
@@ -57,11 +50,9 @@ open class PasscodeLockPresenter {
     }
 
     open func dismiss(animated: Bool = true) {
-        
         isPasscodePresented = false
 
         if animated {
-        
             animatePasscodeLockDismissal()
             
         } else {
@@ -71,7 +62,6 @@ open class PasscodeLockPresenter {
     }
     
     internal func animatePasscodeLockDismissal() {
-        
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
@@ -79,11 +69,9 @@ open class PasscodeLockPresenter {
             initialSpringVelocity: 0,
             options: UIViewAnimationOptions(),
             animations: { [weak self] in
-                
                 self?.passcodeLockWindow.alpha = 0
             },
             completion: { [weak self] _ in
-                
                 self?.passcodeLockWindow.isHidden = true
                 self?.passcodeLockWindow.rootViewController = nil
                 self?.passcodeLockWindow.alpha = 1
@@ -91,7 +79,7 @@ open class PasscodeLockPresenter {
         )
     }
 
-    fileprivate func moveWindowsToFront() {
+    private func moveWindowsToFront() {
         let windowLevel = UIApplication.shared.windows.last?.windowLevel ?? UIWindowLevelNormal
         let maxWinLevel = max(windowLevel, UIWindowLevelNormal)
         passcodeLockWindow.windowLevel =  maxWinLevel + 1

@@ -16,19 +16,14 @@ struct ChangePasscodeState: PasscodeLockStateType {
     var isTouchIDAllowed = false
     
     init() {
-        
         title = localizedStringFor(key: "PasscodeLockChangeTitle", comment: "Change passcode title")
         description = localizedStringFor(key: "PasscodeLockChangeDescription", comment: "Change passcode description")
     }
     
     func accept(passcode: String, from lock: PasscodeLockType) {
-        
         if lock.repository.check(passcode: passcode) {
-        
             lock.changeState(SetPasscodeState())
-        
         } else {
-        
             lock.delegate?.passcodeLockDidFail(lock)
         }
     }

@@ -468,12 +468,12 @@
 					};
 					C9D3DF221B91AD11008561EB = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = "";
 						TestTargetID = C9D3DF0F1B91AD11008561EB;
 					};
 					C9D3DF2D1B91AD12008561EB = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = "";
 						TestTargetID = C9D3DF0F1B91AD11008561EB;
 					};
 				};
