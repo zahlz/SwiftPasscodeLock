@@ -16,9 +16,9 @@ class PasscodeSettingsViewController: UIViewController {
     @IBOutlet weak var testTextField: UITextField!
     @IBOutlet weak var testActivityButton: UIButton!
     
-    private let configuration: PasscodeLockConfigurationType
+    private let configuration: PasscodeLockConfiguration
     
-    init(configuration: PasscodeLockConfigurationType) {
+    init(configuration: PasscodeLockConfiguration) {
         
         self.configuration = configuration
         
@@ -28,7 +28,7 @@ class PasscodeSettingsViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         
         let repository = UserDefaultsPasscodeRepository()
-        configuration = PasscodeLockConfiguration(repository: repository)
+        configuration = DemoPasscodeLockConfiguration(repository: repository)
         
         super.init(coder: aDecoder)
     }
@@ -71,7 +71,7 @@ class PasscodeSettingsViewController: UIViewController {
     @IBAction func changePasscodeButtonTap(sender: UIButton) {
         
         let repo = UserDefaultsPasscodeRepository()
-        let config = PasscodeLockConfiguration(repository: repo)
+        let config = DemoPasscodeLockConfiguration(repository: repo)
         
         let passcodeLock = PasscodeLockViewController(state: .change, configuration: config)
         

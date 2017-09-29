@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RemovePasscodeState: PasscodeLockStateType {
+struct RemovePasscodeState: PasscodeLockState {
     let title: String
     let description: String
     let isCancellableAction = false
@@ -31,7 +31,7 @@ struct RemovePasscodeState: PasscodeLockStateType {
         description = localizedStringFor(key: "PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
-    mutating func accept(passcode: String, from lock: PasscodeLockType) {
+    mutating func accept(passcode: String, from lock: PasscodeLock) {
         if lock.repository.check(passcode: passcode) {
             lock.repository.delete()
             lock.delegate?.passcodeLockDidSucceed(lock)

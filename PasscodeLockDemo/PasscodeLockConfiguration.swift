@@ -9,15 +9,15 @@
 import Foundation
 import PasscodeLock
 
-struct PasscodeLockConfiguration: PasscodeLockConfigurationType {
+struct DemoPasscodeLockConfiguration: PasscodeLockConfiguration {
     
-    let repository: PasscodeRepositoryType
+    let repository: PasscodeRepository
     let passcodeLength = 4
     var isTouchIDAllowed = true
     let shouldRequestTouchIDImmediately = true
     let maximumInccorectPasscodeAttempts = -1
     
-    init(repository: PasscodeRepositoryType) {
+    init(repository: PasscodeRepository) {
         
         self.repository = repository
     }

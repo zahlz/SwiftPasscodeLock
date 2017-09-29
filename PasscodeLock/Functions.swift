@@ -10,7 +10,7 @@ import Foundation
 
 func localizedStringFor(key: String, comment: String) -> String {
     let name = "PasscodeLock"
-    let defaultString = NSLocalizedString(key, tableName: name, bundle: Bundle(for: PasscodeLock.self), comment: comment)
+    let defaultString = NSLocalizedString(key, tableName: name, bundle: Bundle(for: DefaultPasscodeLock.self), comment: comment)
 
     return NSLocalizedString(key, tableName: name, bundle: Bundle.main, value: defaultString, comment: comment)
 }
@@ -20,5 +20,5 @@ func bundleForResource(name: String, ofType type: String) -> Bundle {
         return Bundle.main
     }
 
-    return Bundle(for: PasscodeLock.self)
+    return Bundle(for: DefaultPasscodeLock.self)
 }

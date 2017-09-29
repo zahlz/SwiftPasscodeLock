@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ConfirmPasscodeState: PasscodeLockStateType {
+struct ConfirmPasscodeState: PasscodeLockState {
     
     let title: String
     let description: String
@@ -23,7 +23,7 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
         description = localizedStringFor(key: "PasscodeLockConfirmDescription", comment: "Confirm passcode description")
     }
     
-    func accept(passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLock) {
         if passcode == passcodeToConfirm {
             lock.repository.save(passcode: passcode)
             lock.delegate?.passcodeLockDidSucceed(lock)

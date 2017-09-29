@@ -13,7 +13,7 @@ public enum PasscodeError: Error {
     case noPasscode
 }
 
-class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
+class UserDefaultsPasscodeRepository: PasscodeRepository {
     
     private let passcodeKey = "passcode.lock.passcode"
     

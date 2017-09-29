@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol PasscodeLockConfigurationType {
+public protocol PasscodeLockConfiguration {
     
-    var repository: PasscodeRepositoryType { get }
+    var repository: PasscodeRepository { get }
     var passcodeLength: Int { get }
     var isTouchIDAllowed: Bool { get set }
     var shouldRequestTouchIDImmediately: Bool { get }

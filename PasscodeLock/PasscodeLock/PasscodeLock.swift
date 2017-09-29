@@ -9,16 +9,16 @@
 import Foundation
 import LocalAuthentication
 
-open class PasscodeLock: PasscodeLockType {
+open class DefaultPasscodeLock: PasscodeLock {
     
-    open weak var delegate: PasscodeLockTypeDelegate?
-    open let configuration: PasscodeLockConfigurationType
+    open weak var delegate: PasscodeLockDelegate?
+    open let configuration: PasscodeLockConfiguration
     
-    open var repository: PasscodeRepositoryType {
+    open var repository: PasscodeRepository {
         return configuration.repository
     }
     
-    open var state: PasscodeLockStateType {
+    open var state: PasscodeLockState {
         return lockState
     }
     
@@ -26,10 +26,10 @@ open class PasscodeLock: PasscodeLockType {
         return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
     }
     
-    private var lockState: PasscodeLockStateType
+    private var lockState: PasscodeLockState
     private lazy var passcode = String()
     
-    public init(state: PasscodeLockStateType, configuration: PasscodeLockConfigurationType) {
+    public init(state: PasscodeLockState, configuration: PasscodeLockConfiguration) {
         precondition(configuration.passcodeLength > 0, "Passcode length sould be greather than zero.")
         
         self.lockState = state
@@ -53,7 +53,7 @@ open class PasscodeLock: PasscodeLockType {
         delegate?.passcodeLock(self, removedSignAt: passcode.count)
     }
     
-    open func changeState(_ state: PasscodeLockStateType) {
+    open func changeState(_ state: PasscodeLockState) {
         lockState = state
         delegate?.passcodeLockDidChangeState(self)
     }

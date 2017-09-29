@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SetPasscodeState: PasscodeLockStateType {
+struct SetPasscodeState: PasscodeLockState {
     
     let title: String
     let description: String
@@ -25,7 +25,7 @@ struct SetPasscodeState: PasscodeLockStateType {
         description = localizedStringFor(key: "PasscodeLockSetDescription", comment: "Set passcode description")
     }
     
-    func accept(passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLock) {
         lock.changeState(ConfirmPasscodeState(passcode: passcode))
     }
 }

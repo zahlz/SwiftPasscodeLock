@@ -8,12 +8,12 @@
 
 import Foundation
 
-public protocol PasscodeLockStateType {
+public protocol PasscodeLockState {
     
     var title: String { get }
     var description: String { get }
     var isCancellableAction: Bool { get }
     var isTouchIDAllowed: Bool { get }
     
-    mutating func accept(passcode: String, from lock: PasscodeLockType)
+    mutating func accept(passcode: String, from lock: PasscodeLock)
 }

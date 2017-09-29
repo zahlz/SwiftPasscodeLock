@@ -14,18 +14,18 @@ open class PasscodeLockPresenter {
     
     private lazy var passcodeLockWindow = UIWindow(frame: UIScreen.main.bounds)
         
-    private let passcodeConfiguration: PasscodeLockConfigurationType
+    private let passcodeConfiguration: PasscodeLockConfiguration
     open var isPasscodePresented = false
     open let passcodeLockVC: PasscodeLockViewController
     
-    public init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType, viewController: PasscodeLockViewController) {
+    public init(mainWindow window: UIWindow?, configuration: PasscodeLockConfiguration, viewController: PasscodeLockViewController) {
         mainWindow = window
         passcodeConfiguration = configuration
         
         passcodeLockVC = viewController
     }
 
-    public convenience init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType) {
+    public convenience init(mainWindow window: UIWindow?, configuration: PasscodeLockConfiguration) {
         let passcodeLockVC = PasscodeLockViewController(state: .enter, configuration: configuration)
         self.init(mainWindow: window, configuration: configuration, viewController: passcodeLockVC)
     }

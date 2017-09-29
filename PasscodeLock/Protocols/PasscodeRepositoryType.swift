@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol PasscodeRepositoryType {
+public protocol PasscodeRepository {
     
     var hasPasscode: Bool { get }
     
