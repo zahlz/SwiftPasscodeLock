@@ -34,7 +34,7 @@ struct EnterPasscodeState: PasscodeLockState {
         description = localizedStringFor(key: "PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
     
-    mutating func accept(passcode: String, from lock: PasscodeLock) {
+    mutating func accept(passcode: String, from lock: PasscodeLock) -> PasscodeLockState? {
         if lock.repository.check(passcode: passcode) {
             lock.delegate?.passcodeLockDidSucceed(lock)
             incorrectPasscodeAttempts = 0
@@ -45,6 +45,7 @@ struct EnterPasscodeState: PasscodeLockState {
             }
             lock.delegate?.passcodeLockDidFail(lock)
         }
+        return nil
     }
     
     private mutating func postNotification() {

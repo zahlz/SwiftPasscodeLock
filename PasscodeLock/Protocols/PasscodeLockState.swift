@@ -15,5 +15,5 @@ public protocol PasscodeLockState {
     var isCancellableAction: Bool { get }
     var isTouchIDAllowed: Bool { get }
     
-    mutating func accept(passcode: String, from lock: PasscodeLock)
+    mutating func accept(passcode: String, from lock: PasscodeLock) -> PasscodeLockState?
 }

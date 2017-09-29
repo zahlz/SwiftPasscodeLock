@@ -20,11 +20,12 @@ struct ChangePasscodeState: PasscodeLockState {
         description = localizedStringFor(key: "PasscodeLockChangeDescription", comment: "Change passcode description")
     }
     
-    func accept(passcode: String, from lock: PasscodeLock) {
+    func accept(passcode: String, from lock: PasscodeLock) -> PasscodeLockState? {
         if lock.repository.check(passcode: passcode) {
-            lock.changeState(SetPasscodeState())
+            return SetPasscodeState()
         } else {
             lock.delegate?.passcodeLockDidFail(lock)
+            return nil
         }
     }
 }

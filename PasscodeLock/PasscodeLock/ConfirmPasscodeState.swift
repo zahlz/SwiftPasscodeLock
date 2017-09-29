@@ -23,16 +23,17 @@ struct ConfirmPasscodeState: PasscodeLockState {
         description = localizedStringFor(key: "PasscodeLockConfirmDescription", comment: "Confirm passcode description")
     }
     
-    func accept(passcode: String, from lock: PasscodeLock) {
+    func accept(passcode: String, from lock: PasscodeLock) -> PasscodeLockState? {
         if passcode == passcodeToConfirm {
             lock.repository.save(passcode: passcode)
             lock.delegate?.passcodeLockDidSucceed(lock)
+            return nil
         } else {
             let mismatchTitle = localizedStringFor(key: "PasscodeLockMismatchTitle", comment: "Passcode mismatch title")
             let mismatchDescription = localizedStringFor(key: "PasscodeLockMismatchDescription", comment: "Passcode mismatch description")
             
-            lock.changeState(SetPasscodeState(title: mismatchTitle, description: mismatchDescription))
             lock.delegate?.passcodeLockDidFail(lock)
+            return SetPasscodeState(title: mismatchTitle, description: mismatchDescription)
         }
     }
 }

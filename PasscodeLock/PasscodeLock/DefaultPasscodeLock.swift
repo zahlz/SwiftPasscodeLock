@@ -42,7 +42,9 @@ open class DefaultPasscodeLock: PasscodeLock {
         delegate?.passcodeLock(self, addedSignAt: passcode.count - 1)
         
         if passcode.count >= configuration.passcodeLength {
-            lockState.accept(passcode: passcode, from: self)
+            if let newState = lockState.accept(passcode: passcode, from: self) {
+                changeState(newState)
+            }
             passcode.removeAll(keepingCapacity: true)
         }
     }

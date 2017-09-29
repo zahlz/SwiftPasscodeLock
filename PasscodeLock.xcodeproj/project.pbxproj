@@ -21,16 +21,16 @@
 		C9D3DF441B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF431B91B9CD008561EB /* UserDefaultsPasscodeRepository.swift */; };
 		C9D3DF461B91BD0E008561EB /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF451B91BD0E008561EB /* PasscodeLockConfiguration.swift */; };
 		C9D3DF481B91F099008561EB /* PasscodeLockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3DF471B91F099008561EB /* PasscodeLockPresenter.swift */; };
-		C9DC07D51B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; };
-		C9DC07D61B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */; };
-		C9DC07D81B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; };
-		C9DC07D91B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */; };
-		C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; };
-		C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */; };
-		C9DC07DE1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; };
-		C9DC07DF1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */; };
-		C9DC07E11B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; };
-		C9DC07E21B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */; };
+		C9DC07D51B90B1F6007A4DD0 /* PasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepository.swift */; };
+		C9DC07D61B90B1F6007A4DD0 /* PasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D41B90B1F6007A4DD0 /* PasscodeRepository.swift */; };
+		C9DC07D81B90B261007A4DD0 /* PasscodeLockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockState.swift */; };
+		C9DC07D91B90B261007A4DD0 /* PasscodeLockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07D71B90B261007A4DD0 /* PasscodeLockState.swift */; };
+		C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfiguration.swift */; };
+		C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfiguration.swift */; };
+		C9DC07DE1B90BA06007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLock.swift */; };
+		C9DC07DF1B90BA06007A4DD0 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07DD1B90BA06007A4DD0 /* PasscodeLock.swift */; };
+		C9DC07E11B90BBFD007A4DD0 /* DefaultPasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* DefaultPasscodeLock.swift */; };
+		C9DC07E21B90BBFD007A4DD0 /* DefaultPasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E01B90BBFD007A4DD0 /* DefaultPasscodeLock.swift */; };
 		C9DC07E51B90BCF9007A4DD0 /* PasscodeLockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E41B90BCF9007A4DD0 /* PasscodeLockTests.swift */; };
 		C9DC07E71B90C382007A4DD0 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DC07E61B90C382007A4DD0 /* LocalAuthentication.framework */; };
 		C9DC07EA1B90C690007A4DD0 /* FakePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DC07E91B90C690007A4DD0 /* FakePasscodeState.swift */; };
@@ -127,11 +127,11 @@
 		C9D3DF451B91BD0E008561EB /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
 		C9D3DF471B91F099008561EB /* PasscodeLockPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockPresenter.swift; sourceTree = "<group>"; };
 		C9DC07CE1B90B0AC007A4DD0 /* PasscodeLockTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PasscodeLockTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeRepositoryType.swift; sourceTree = "<group>"; };
-		C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockStateType.swift; sourceTree = "<group>"; };
-		C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfigurationType.swift; sourceTree = "<group>"; };
-		C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockType.swift; sourceTree = "<group>"; };
-		C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLock.swift; sourceTree = "<group>"; };
+		C9DC07D41B90B1F6007A4DD0 /* PasscodeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeRepository.swift; sourceTree = "<group>"; };
+		C9DC07D71B90B261007A4DD0 /* PasscodeLockState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockState.swift; sourceTree = "<group>"; };
+		C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
+		C9DC07DD1B90BA06007A4DD0 /* PasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLock.swift; sourceTree = "<group>"; };
+		C9DC07E01B90BBFD007A4DD0 /* DefaultPasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPasscodeLock.swift; sourceTree = "<group>"; };
 		C9DC07E41B90BCF9007A4DD0 /* PasscodeLockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockTests.swift; sourceTree = "<group>"; };
 		C9DC07E61B90C382007A4DD0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		C9DC07E91B90C690007A4DD0 /* FakePasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakePasscodeState.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		C9DC07D11B90B1CE007A4DD0 /* PasscodeLock */ = {
 			isa = PBXGroup;
 			children = (
-				C9DC07E01B90BBFD007A4DD0 /* PasscodeLock.swift */,
+				C9DC07E01B90BBFD007A4DD0 /* DefaultPasscodeLock.swift */,
 				C9DC07F11B90C9DE007A4DD0 /* EnterPasscodeState.swift */,
 				C9DC07FE1B90D24A007A4DD0 /* SetPasscodeState.swift */,
 				C9DC08011B90D2BA007A4DD0 /* ConfirmPasscodeState.swift */,
@@ -295,10 +295,10 @@
 		C9DC07D21B90B1CE007A4DD0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				C9DC07D41B90B1F6007A4DD0 /* PasscodeRepositoryType.swift */,
-				C9DC07D71B90B261007A4DD0 /* PasscodeLockStateType.swift */,
-				C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift */,
-				C9DC07DD1B90BA06007A4DD0 /* PasscodeLockType.swift */,
+				C9DC07D41B90B1F6007A4DD0 /* PasscodeRepository.swift */,
+				C9DC07D71B90B261007A4DD0 /* PasscodeLockState.swift */,
+				C9DC07DA1B90B730007A4DD0 /* PasscodeLockConfiguration.swift */,
+				C9DC07DD1B90BA06007A4DD0 /* PasscodeLock.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -557,13 +557,13 @@
 				C9DC07F21B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */,
 				C9DC08141B90DE50007A4DD0 /* PasscodeSignButton.swift in Sources */,
 				C9D3DF481B91F099008561EB /* PasscodeLockPresenter.swift in Sources */,
-				C9DC07D81B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */,
+				C9DC07D81B90B261007A4DD0 /* PasscodeLockState.swift in Sources */,
 				C9DC08161B90DF4E007A4DD0 /* PasscodeLockViewController.swift in Sources */,
-				C9DC07E11B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */,
+				C9DC07E11B90BBFD007A4DD0 /* DefaultPasscodeLock.swift in Sources */,
 				C9DC07F81B90CF29007A4DD0 /* Functions.swift in Sources */,
-				C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */,
-				C9DC07DE1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */,
-				C9DC07D51B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */,
+				C9DC07DB1B90B730007A4DD0 /* PasscodeLockConfiguration.swift in Sources */,
+				C9DC07DE1B90BA06007A4DD0 /* PasscodeLock.swift in Sources */,
+				C9DC07D51B90B1F6007A4DD0 /* PasscodeRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,18 +577,18 @@
 				C9DC07E51B90BCF9007A4DD0 /* PasscodeLockTests.swift in Sources */,
 				C9DC08031B90D2BA007A4DD0 /* ConfirmPasscodeState.swift in Sources */,
 				C9DC07F01B90C8E1007A4DD0 /* FakePasscodeLockDelegate.swift in Sources */,
-				C9DC07D91B90B261007A4DD0 /* PasscodeLockStateType.swift in Sources */,
-				C9DC07E21B90BBFD007A4DD0 /* PasscodeLock.swift in Sources */,
+				C9DC07D91B90B261007A4DD0 /* PasscodeLockState.swift in Sources */,
+				C9DC07E21B90BBFD007A4DD0 /* DefaultPasscodeLock.swift in Sources */,
 				C9DC07EA1B90C690007A4DD0 /* FakePasscodeState.swift in Sources */,
 				C9DC08101B90DD91007A4DD0 /* ChangePasscodeStateTests.swift in Sources */,
-				C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfigurationType.swift in Sources */,
+				C9DC07DC1B90B730007A4DD0 /* PasscodeLockConfiguration.swift in Sources */,
 				C9DC07F31B90C9DE007A4DD0 /* EnterPasscodeState.swift in Sources */,
 				C9DC08001B90D24A007A4DD0 /* SetPasscodeState.swift in Sources */,
 				C9DC07EE1B90C7CD007A4DD0 /* FakePasscodeLockConfiguration.swift in Sources */,
 				C9DC080C1B90DC38007A4DD0 /* SetPasscodeStateTests.swift in Sources */,
 				C9DC08081B90DAE6007A4DD0 /* EnterPasscodeStateTests.swift in Sources */,
-				C9DC07DF1B90BA06007A4DD0 /* PasscodeLockType.swift in Sources */,
-				C9DC07D61B90B1F6007A4DD0 /* PasscodeRepositoryType.swift in Sources */,
+				C9DC07DF1B90BA06007A4DD0 /* PasscodeLock.swift in Sources */,
+				C9DC07D61B90B1F6007A4DD0 /* PasscodeRepository.swift in Sources */,
 				C9DC07F91B90CF29007A4DD0 /* Functions.swift in Sources */,
 				C9DC080A1B90DB09007A4DD0 /* FakePasscodeLock.swift in Sources */,
 			);
