@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FakePasscodeState: PasscodeLockStateType {
+class FakePasscodeState: PasscodeLockState {
     
     var title = "A"
     var description = "B"
@@ -21,10 +21,12 @@ class FakePasscodeState: PasscodeLockStateType {
     
     init() {}
     
-    func accept(passcode: String, from lock: PasscodeLockType) {
+    func accept(passcode: String, from lock: PasscodeLock) -> PasscodeLockState? {
         
         acceptedPasscode = passcode
         acceptPaccodeCalled = true
         numberOfAcceptedPasscodes += 1
+        
+        return nil
     }
 }

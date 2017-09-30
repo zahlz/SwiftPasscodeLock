@@ -48,7 +48,7 @@ class EnterPasscodeStateTests: XCTestCase {
             
             var called = false
             
-            override func passcodeLockDidSucceed(_ lock: PasscodeLockType) {
+            override func passcodeLockDidSucceed(_ lock: PasscodeLock) {
                 
                 called = true
             }
@@ -57,7 +57,9 @@ class EnterPasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.accept(passcode: repository.fakePasscode, from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: repository.fakePasscode, from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
         
         XCTAssertEqual(delegate.called, true, "Should call the delegate when the passcode is correct")
     }
@@ -68,7 +70,7 @@ class EnterPasscodeStateTests: XCTestCase {
             
             var called = false
             
-            override func passcodeLockDidFail(_ lock: PasscodeLockType) {
+            override func passcodeLockDidFail(_ lock: PasscodeLock) {
                 
                 called = true
             }
@@ -77,7 +79,9 @@ class EnterPasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.accept(passcode: "0000", from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: "0000", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
         
         XCTAssertEqual(delegate.called, true, "Should call the delegate when the passcode is incorrect")
     }
@@ -88,9 +92,15 @@ class EnterPasscodeStateTests: XCTestCase {
 
         observer.observe(notification: PasscodeLockIncorrectPasscodeNotification)
         
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
         
         XCTAssertEqual(observer.called, true, "Should send a notificaiton when the maximum number of incorrect attempts is reached")
     }
@@ -101,13 +111,25 @@ class EnterPasscodeStateTests: XCTestCase {
 
         observer.observe(notification: PasscodeLockIncorrectPasscodeNotification)
         
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
         
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
-        passcodeState.accept(passcode: "0", from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
+        if let newState = passcodeState.accept(passcode: "0", from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
 
         XCTAssertEqual(observer.callCounter, 1, "Should send the notification only once")
     }

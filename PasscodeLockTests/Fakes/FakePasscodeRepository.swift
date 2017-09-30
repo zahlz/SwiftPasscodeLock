@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FakePasscodeRepository: PasscodeRepositoryType {
+class FakePasscodeRepository: PasscodeRepository {
     
     var hasPasscode: Bool { return true }
     private var passcode: String? { return fakePasscode }

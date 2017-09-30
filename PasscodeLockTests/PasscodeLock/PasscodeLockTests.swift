@@ -20,7 +20,7 @@ class PasscodeLockTests: XCTestCase {
         let config = FakePasscodeLockConfiguration(repository: repository)
         
         initialState = FakePasscodeState()
-        passcodeLock = PasscodeLock(state: initialState, configuration: config)
+        passcodeLock = DefaultPasscodeLock(state: initialState, configuration: config)
     }
     
     func testSetStateTo() {
@@ -29,7 +29,7 @@ class PasscodeLockTests: XCTestCase {
             
             var called = false
             
-            override func passcodeLockDidChangeState(_ lock: PasscodeLockType) {
+            override func passcodeLockDidChangeState(_ lock: PasscodeLock) {
                 
                 called = true
             }
@@ -51,7 +51,7 @@ class PasscodeLockTests: XCTestCase {
             var called = false
             var signIndex = 0
             
-            override func passcodeLock(_ lock: PasscodeLockType, addedSignAt index: Int) {
+            override func passcodeLock(_ lock: PasscodeLock, addedSignAt index: Int) {
                 
                 called = true
                 signIndex = index
@@ -78,7 +78,7 @@ class PasscodeLockTests: XCTestCase {
             var called = false
             var signIndex = 0
             
-            override func passcodeLock(_ lock: PasscodeLockType, removedSignAt index: Int) {
+            override func passcodeLock(_ lock: PasscodeLock, removedSignAt index: Int) {
                 
                 called = true
                 signIndex = index

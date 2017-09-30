@@ -8,15 +8,15 @@
 
 import Foundation
 
-class FakePasscodeLockConfiguration: PasscodeLockConfigurationType {
+class FakePasscodeLockConfiguration: PasscodeLockConfiguration {
     
-    let repository: PasscodeRepositoryType
+    let repository: PasscodeRepository
     let passcodeLength = 4
     var isTouchIDAllowed = false
     let maximumInccorectPasscodeAttempts = 3
     let shouldRequestTouchIDImmediately = false
     
-    init(repository: PasscodeRepositoryType) {
+    init(repository: PasscodeRepository) {
         
         self.repository = repository
     }

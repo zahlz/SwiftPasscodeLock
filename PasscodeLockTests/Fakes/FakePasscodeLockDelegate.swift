@@ -8,11 +8,11 @@
 
 import Foundation
 
-class FakePasscodeLockDelegate: PasscodeLockTypeDelegate {
+class FakePasscodeLockDelegate: PasscodeLockDelegate {
     
-    func passcodeLockDidSucceed(_ lock: PasscodeLockType) {}
-    func passcodeLockDidFail(_ lock: PasscodeLockType) {}
-    func passcodeLockDidChangeState(_ lock: PasscodeLockType) {}
-    func passcodeLock(_ lock: PasscodeLockType, addedSignAt index: Int) {}
-    func passcodeLock(_ lock: PasscodeLockType, removedSignAt index: Int) {}
+    func passcodeLockDidSucceed(_ lock: PasscodeLock) {}
+    func passcodeLockDidFail(_ lock: PasscodeLock) {}
+    func passcodeLockDidChangeState(_ lock: PasscodeLock) {}
+    func passcodeLock(_ lock: PasscodeLock, addedSignAt index: Int) {}
+    func passcodeLock(_ lock: PasscodeLock, removedSignAt index: Int) {}
 }

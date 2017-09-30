@@ -31,7 +31,7 @@ class ChangePasscodeStateTests: XCTestCase {
             
             var didChangedState = false
             
-            override func passcodeLockDidChangeState(_ lock: PasscodeLockType) {
+            override func passcodeLockDidChangeState(_ lock: PasscodeLock) {
                 
                 didChangedState = true
             }
@@ -40,7 +40,9 @@ class ChangePasscodeStateTests: XCTestCase {
         let delegate = MockDelegate()
         
         passcodeLock.delegate = delegate
-        passcodeState.accept(passcode: repository.fakePasscode, from: passcodeLock)
+        if let newState = passcodeState.accept(passcode: repository.fakePasscode, from: passcodeLock) {
+            passcodeLock.changeState(newState)
+        }
         
         XCTAssert(passcodeLock.state is SetPasscodeState, "Should change the state to SetPasscodeState")
         XCTAssertEqual(delegate.didChangedState, true, "Should call the delegate when the passcode is correct")
@@ -52,7 +54,7 @@ class ChangePasscodeStateTests: XCTestCase {
             
             var called = false
             
-            override func passcodeLockDidFail(_ lock: PasscodeLockType) {
+            override func passcodeLockDidFail(_ lock: PasscodeLock) {
                 
                 called = true
             }

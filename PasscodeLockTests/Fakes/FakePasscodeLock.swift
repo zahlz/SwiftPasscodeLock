@@ -8,18 +8,18 @@
 
 import Foundation
 
-class FakePasscodeLock: PasscodeLockType {
+class FakePasscodeLock: PasscodeLock {
     
-    weak var delegate: PasscodeLockTypeDelegate?
-    let configuration: PasscodeLockConfigurationType
-    var repository: PasscodeRepositoryType { return configuration.repository }
-    var state: PasscodeLockStateType { return lockState }
+    weak var delegate: PasscodeLockDelegate?
+    let configuration: PasscodeLockConfiguration
+    var repository: PasscodeRepository { return configuration.repository }
+    var state: PasscodeLockState { return lockState }
     let isTouchIDAllowed = false
-    var lockState: PasscodeLockStateType
+    var lockState: PasscodeLockState
     
     var changeStateCalled = false
     
-    init(state: PasscodeLockStateType, configuration: PasscodeLockConfigurationType) {
+    init(state: PasscodeLockState, configuration: PasscodeLockConfiguration) {
         
         self.lockState = state
         self.configuration = configuration
@@ -33,7 +33,7 @@ class FakePasscodeLock: PasscodeLockType {
         
     }
     
-    func changeState(_ state: PasscodeLockStateType) {
+    func changeState(_ state: PasscodeLockState) {
         
         lockState = state
         changeStateCalled = true
