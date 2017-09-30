@@ -3,4 +3,4 @@ osx_image: xcode9
 xcode_project: PasscodeLock.xcodeproj
 xcode_scheme: PasscodeLock
 script:
-- set -o pipefail && xcodebuild test -project PasscodeLock.xcodeproj -scheme "PasscodeLock" -sdk iphonesimulator10.0 -destination "platform=iOS Simulator,OS=10.0,name=iPhone 7 Plus" ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -project PasscodeLock.xcodeproj -scheme "PasscodeLock" -sdk iphonesimulator11.0 -destination "platform=iOS Simulator,OS=11.0,name=iPhone 8 Plus" ONLY_ACTIVE_ARCH=NO | xcpretty
