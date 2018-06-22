@@ -9,117 +9,105 @@
 import XCTest
 
 class PasscodeLockTests: XCTestCase {
-    
     var passcodeLock: PasscodeLock!
     var initialState: FakePasscodeState!
-    
+
     override func setUp() {
         super.setUp()
-        
+
         let repository = FakePasscodeRepository()
         let config = FakePasscodeLockConfiguration(repository: repository)
-        
+
         initialState = FakePasscodeState()
         passcodeLock = PasscodeLock(state: initialState, configuration: config)
     }
-    
+
     func testSetStateTo() {
-        
         class MockDelegate: FakePasscodeLockDelegate {
-            
             var called = false
-            
+
             override func passcodeLockDidChangeState(_ lock: PasscodeLockType) {
-                
                 called = true
             }
         }
-        
+
         let delegate = MockDelegate()
         let nextState = FakePasscodeState()
-        
+
         passcodeLock.delegate = delegate
         passcodeLock.changeState(nextState)
-        
+
         XCTAssertEqual(delegate.called, true, "Should inform the delegate for state changes")
     }
-    
+
     func testAddSign() {
-        
         class MockDelegate: FakePasscodeLockDelegate {
-            
             var called = false
             var signIndex = 0
-            
+
             override func passcodeLock(_ lock: PasscodeLockType, addedSignAt index: Int) {
-                
                 called = true
                 signIndex = index
             }
         }
-        
+
         let delegate = MockDelegate()
-        
+
         passcodeLock.delegate = delegate
         passcodeLock.addSign("1")
-        
+
         XCTAssertEqual(delegate.called, true, "Should inform the delegate for added sign at index")
         XCTAssertEqual(delegate.signIndex, 0, "Should return the added sign index")
-        
+
         passcodeLock.addSign("2")
-        
+
         XCTAssertEqual(delegate.signIndex, 1, "Should return the added sign index")
     }
-    
+
     func testRemoveSign() {
-        
         class MockDelegate: FakePasscodeLockDelegate {
-            
             var called = false
             var signIndex = 0
-            
+
             override func passcodeLock(_ lock: PasscodeLockType, removedSignAt index: Int) {
-                
                 called = true
                 signIndex = index
             }
         }
-        
+
         let delegate = MockDelegate()
-        
+
         passcodeLock.delegate = delegate
         passcodeLock.addSign("1")
         passcodeLock.addSign("2")
-        
+
         passcodeLock.removeSign()
-        
+
         XCTAssertEqual(delegate.called, true, "Should inform the delegate for removed sign at index")
         XCTAssertEqual(delegate.signIndex, 1, "Should return the removed sign index")
-        
+
         passcodeLock.removeSign()
         XCTAssertEqual(delegate.signIndex, 0, "Should return the removed sign index")
     }
-    
+
     func testCallStateToAcceptTheEnteredPasscode() {
-        
         let passcode = "0123"
-        
-        passcode.characters.map { String($0) }.forEach(passcodeLock.addSign)
-        
+
+        passcode.map { String($0) }.forEach(passcodeLock.addSign)
+
         XCTAssertEqual(initialState.acceptPaccodeCalled, true, "When the passcode length is reached should call the current state to accept the entered passcode")
         XCTAssertEqual(initialState.acceptedPasscode, passcode, "Should return the entered passcode")
         XCTAssertEqual(initialState.numberOfAcceptedPasscodes, 1, "Should call the accept passcode only once")
     }
-    
+
     func testResetSigns() {
-        
-        let passcodeOne = "0123" //["0", "1", "2", "3"]
-        let passcodeTwo = "9876" //["9", "8", "7", "6"]
-        
-        passcodeOne.characters.map { String($0) }.forEach(passcodeLock.addSign)
-        
-        passcodeTwo.characters.map { String($0) }.forEach(passcodeLock.addSign)
-        
+        let passcodeOne = "0123" // ["0", "1", "2", "3"]
+        let passcodeTwo = "9876" // ["9", "8", "7", "6"]
+
+        passcodeOne.map { String($0) }.forEach(passcodeLock.addSign)
+
+        passcodeTwo.map { String($0) }.forEach(passcodeLock.addSign)
+
         XCTAssertEqual(initialState.numberOfAcceptedPasscodes, 2, "Should call the accept passcode twice")
         XCTAssertEqual(initialState.acceptedPasscode, passcodeTwo, "Shpuld return the last entered passcode")
     }
