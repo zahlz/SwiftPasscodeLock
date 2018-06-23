@@ -72,9 +72,9 @@ open class PasscodeLock: PasscodeLockType {
     }
 
     fileprivate func handleTouchIDResult(_ success: Bool) {
-        DispatchQueue.main.async {
-            guard success else { return }
-            self.delegate?.passcodeLockDidSucceed(self)
+        DispatchQueue.main.async { [weak self] in
+            guard success, let strongSelf = self else { return }
+            strongSelf.delegate?.passcodeLockDidSucceed(strongSelf)
         }
     }
 
