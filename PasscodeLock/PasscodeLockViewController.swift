@@ -17,21 +17,21 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
 
         func getState() -> PasscodeLockStateType {
             switch self {
-            case .enter: return EnterPasscodeState()
-            case .set: return SetPasscodeState()
-            case .change: return ChangePasscodeState()
-            case .remove: return RemovePasscodeState()
+                case .enter: return EnterPasscodeState()
+                case .set: return SetPasscodeState()
+                case .change: return ChangePasscodeState()
+                case .remove: return RemovePasscodeState()
             }
         }
     }
 
-    @IBOutlet open var titleLabel: UILabel?
-    @IBOutlet open var descriptionLabel: UILabel?
     @IBOutlet open var placeholders: [PasscodeSignPlaceholderView] = [PasscodeSignPlaceholderView]()
-    @IBOutlet open var cancelButton: UIButton?
-    @IBOutlet open var deleteSignButton: UIButton?
-    @IBOutlet open var touchIDButton: UIButton?
-    @IBOutlet open var placeholdersX: NSLayoutConstraint?
+    @IBOutlet open weak var titleLabel: UILabel?
+    @IBOutlet open weak var descriptionLabel: UILabel?
+    @IBOutlet open weak var cancelButton: UIButton?
+    @IBOutlet open weak var deleteSignButton: UIButton?
+    @IBOutlet open weak var touchIDButton: UIButton?
+    @IBOutlet open weak var placeholdersX: NSLayoutConstraint?
 
     open var successCallback: ((_ lock: PasscodeLockType) -> Void)?
     open var dismissCompletionCallback: (() -> Void)?
