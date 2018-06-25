@@ -1,14 +1,18 @@
 # PasscodeLock
 [![Build Status](https://travis-ci.org/zahlz/SwiftPasscodeLock.svg?branch=master)](https://travis-ci.org/zahlz/SwiftPasscodeLock)
-[![Swift3](https://img.shields.io/badge/swift3-compatible-brightgreen.svg)](https://apple.com/ios)
+[![Swift4.1](https://img.shields.io/badge/swift4.1-compatible-brightgreen.svg)](https://apple.com/ios)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 A Swift implementation of passcode lock for iOS with TouchID authentication.
 
 <center><img src="https://raw.githubusercontent.com/yankodimitrov/SwiftPasscodeLock/master/passcode-lock.gif" height="386"></center>
 
+## Requirements
+* iOS 8.0+
+* Xcode 9.0+
+* Swift 4.1+
+
 ## Installation
-PasscodeLock requires Swift 3.0 and Xcode 8
 
 #### Carthage
 
@@ -25,6 +29,7 @@ github "zahlz/SwiftPasscodeLock"
 3. Create an instance of the `PasscodeLockPresenter` class. Next inside your `UIApplicationDelegate` implementation call it to present the passcode in `didFinishLaunchingWithOptions` and `applicationDidEnterBackground` methods. The passcode lock will be presented only if your user has set a passcode.
 
 4. Allow your users to set a passcode by presenting the `PasscodeLockViewController` in `.set` state:
+
 ```swift
 let configuration = ... // your implementation of the PasscodeLockConfigurationType protocol
 

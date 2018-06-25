@@ -9,13 +9,12 @@
 import Foundation
 
 public protocol PasscodeLockType {
-    
-    weak var delegate: PasscodeLockTypeDelegate? { get set }
+    var delegate: PasscodeLockTypeDelegate? { get set }
     var configuration: PasscodeLockConfigurationType { get }
     var repository: PasscodeRepositoryType { get }
     var state: PasscodeLockStateType { get }
     var isTouchIDAllowed: Bool { get }
-    
+
     func addSign(_ sign: String)
     func removeSign()
     func changeState(_ state: PasscodeLockStateType)
@@ -23,7 +22,6 @@ public protocol PasscodeLockType {
 }
 
 public protocol PasscodeLockTypeDelegate: class {
-    
     func passcodeLockDidSucceed(_ lock: PasscodeLockType)
     func passcodeLockDidFail(_ lock: PasscodeLockType)
     func passcodeLockDidChangeState(_ lock: PasscodeLockType)
