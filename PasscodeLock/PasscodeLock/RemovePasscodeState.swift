@@ -13,54 +13,33 @@ struct RemovePasscodeState: PasscodeLockStateType {
     let description: String
     let isCancellableAction = false
     var isTouchIDAllowed: Bool { return false }
-    
     private var isNotificationSent = false
-    
-    fileprivate var incorrectPasscodeAttemptsKey = "incorrectPasscodeAttemps"
-    private var incorrectPasscodeAttempts: Int {
-        get {
-            return UserDefaults.standard.integer(forKey: incorrectPasscodeAttemptsKey)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: incorrectPasscodeAttemptsKey)
-        }
-    }
-    
+
     init() {
-        
         title = localizedStringFor(key: "PasscodeLockEnterTitle", comment: "Enter passcode title")
         description = localizedStringFor(key: "PasscodeLockEnterDescription", comment: "Enter passcode description")
     }
-    
+
     mutating func accept(passcode: String, from lock: PasscodeLockType) {
         if lock.repository.check(passcode: passcode) {
-            
             lock.repository.delete()
-            
             lock.delegate?.passcodeLockDidSucceed(lock)
-            
-            incorrectPasscodeAttempts = 0
-            
+            lock.configuration.setIncorrectPasscodeAttempts(0)
         } else {
-            
-            incorrectPasscodeAttempts += 1
-            
-            if incorrectPasscodeAttempts >= lock.configuration.maximumInccorectPasscodeAttempts {
-                
+            let oldValue = lock.configuration.getIncorrectPasscodeAttempts()
+            lock.configuration.setIncorrectPasscodeAttempts(oldValue + 1)
+
+            if lock.configuration.getIncorrectPasscodeAttempts() >= lock.configuration.maximumIncorrectPasscodeAttempts {
                 postNotification()
             }
-            
+
             lock.delegate?.passcodeLockDidFail(lock)
         }
     }
-    
+
     fileprivate mutating func postNotification() {
-        
         guard !isNotificationSent else { return }
-        
         NotificationCenter.default.post(name: PasscodeLockIncorrectPasscodeNotification, object: nil)
-        
         isNotificationSent = true
     }
-
 }
