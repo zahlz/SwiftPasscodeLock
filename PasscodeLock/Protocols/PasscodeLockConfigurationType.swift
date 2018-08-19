@@ -18,7 +18,8 @@ public protocol PasscodeLockConfigurationType {
     func setIncorrectPasscodeAttempts(_ value: Int)
 }
 
-fileprivate let incorrectPasscodeAttemptsKey = "incorrectPasscodeAttempts"
+private let incorrectPasscodeAttemptsKey = "incorrectPasscodeAttempts"
+
 extension PasscodeLockConfigurationType {
     public func getIncorrectPasscodeAttempts() -> Int {
         return UserDefaults.standard.integer(forKey: incorrectPasscodeAttemptsKey)

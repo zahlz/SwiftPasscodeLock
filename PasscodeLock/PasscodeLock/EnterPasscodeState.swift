@@ -39,7 +39,7 @@ struct EnterPasscodeState: PasscodeLockStateType {
         }
     }
 
-    fileprivate mutating func postNotification() {
+    private mutating func postNotification() {
         guard !isNotificationSent else { return }
         NotificationCenter.default.post(name: PasscodeLockIncorrectPasscodeNotification, object: nil)
         isNotificationSent = true

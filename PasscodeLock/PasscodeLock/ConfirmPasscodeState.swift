@@ -15,7 +15,7 @@ struct ConfirmPasscodeState: PasscodeLockStateType {
     let isCancellableAction = true
     var isTouchIDAllowed = false
     
-    fileprivate var passcodeToConfirm: String
+    private var passcodeToConfirm: String
     
     init(passcode: String) {
         

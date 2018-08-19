@@ -51,9 +51,9 @@ open class PasscodeSignButton: UIButton {
         return CGSize(width: 60, height: 60)
     }
 
-    fileprivate var defaultBackgroundColor: UIColor = .clear
+    private var defaultBackgroundColor: UIColor = .clear
 
-    fileprivate func setupView() {
+    private func setupView() {
         layer.borderWidth = 1
         layer.cornerRadius = borderRadius
         layer.borderColor = borderColor.cgColor
@@ -63,7 +63,7 @@ open class PasscodeSignButton: UIButton {
         }
     }
 
-    fileprivate func setupActions() {
+    private func setupActions() {
         addTarget(self, action: #selector(PasscodeSignButton.handleTouchDown), for: .touchDown)
         addTarget(self, action: #selector(PasscodeSignButton.handleTouchUp), for: [.touchUpInside, .touchDragOutside, .touchCancel])
     }
@@ -76,7 +76,7 @@ open class PasscodeSignButton: UIButton {
         animateBackgroundColor(defaultBackgroundColor)
     }
 
-    fileprivate func animateBackgroundColor(_ color: UIColor) {
+    private func animateBackgroundColor(_ color: UIColor) {
         UIView.animate(
             withDuration: 0.3,
             delay: 0.0,

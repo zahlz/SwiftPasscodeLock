@@ -42,7 +42,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     internal var passcodeLock: PasscodeLockType
     internal var isPlaceholdersAnimationCompleted = true
 
-    fileprivate var shouldTryToAuthenticateWithBiometrics = true
+    private var shouldTryToAuthenticateWithBiometrics = true
 
     // MARK: - Initializers
 
@@ -104,12 +104,12 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
 
     // MARK: - Events
 
-    fileprivate func setupEvents() {
+    private func setupEvents() {
         notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appWillEnterForegroundHandler(_:)), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
         notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appDidEnterBackgroundHandler(_:)), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
     }
 
-    fileprivate func clearEvents() {
+    private func clearEvents() {
         notificationCenter?.removeObserver(self, name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         notificationCenter?.removeObserver(self, name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
     }
@@ -142,7 +142,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeLock.authenticateWithTouchID()
     }
 
-    fileprivate func authenticateWithTouchID() {
+    private func authenticateWithTouchID() {
         if passcodeConfiguration.shouldRequestTouchIDImmediately && passcodeLock.isTouchIDAllowed {
             passcodeLock.authenticateWithTouchID()
         }
@@ -195,7 +195,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         placeholders.forEach { $0.animateState(state) }
     }
 
-    fileprivate func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
+    private func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
         guard index < placeholders.count && index >= 0 else { return }
 
         placeholders[index].animateState(state)
