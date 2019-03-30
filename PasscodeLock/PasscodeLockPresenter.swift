@@ -89,8 +89,8 @@ open class PasscodeLockPresenter {
     }
 
     private func moveWindowsToFront() {
-        let windowLevel = UIApplication.shared.windows.last?.windowLevel ?? UIWindowLevelNormal
-        let maxWinLevel = max(windowLevel, UIWindowLevelNormal)
+        let windowLevel = UIApplication.shared.windows.last?.windowLevel ?? UIWindow.Level.normal
+        let maxWinLevel = max(windowLevel, .normal)
         passcodeLockWindow.windowLevel =  maxWinLevel + 1
     }
 }
