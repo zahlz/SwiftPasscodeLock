@@ -58,7 +58,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeConfiguration = configuration
         passcodeLock = PasscodeLock(state: state, configuration: configuration)
 
-        let this = PasscodeLockViewController.self
+        let this = type(of: self)
         super.init(nibName: this.nibName, bundle: this.nibBundle)
 
         passcodeLock.delegate = self
