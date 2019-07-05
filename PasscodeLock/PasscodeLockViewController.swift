@@ -25,6 +25,12 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         }
     }
 
+    private static var nibName: String { return "PasscodeLockView" }
+
+    open class var nibBundle: Bundle {
+        return bundleForResource(name: nibName, ofType: "nib")
+    }
+
     @IBOutlet open var placeholders: [PasscodeSignPlaceholderView] = [PasscodeSignPlaceholderView]()
     @IBOutlet open weak var titleLabel: UILabel?
     @IBOutlet open weak var descriptionLabel: UILabel?
@@ -52,10 +58,8 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeConfiguration = configuration
         passcodeLock = PasscodeLock(state: state, configuration: configuration)
 
-        let nibName = "PasscodeLockView"
-        let bundle: Bundle = bundleForResource(name: nibName, ofType: "nib")
-
-        super.init(nibName: nibName, bundle: bundle)
+        let this = PasscodeLockViewController.self
+        super.init(nibName: this.nibName, bundle: this.nibBundle)
 
         passcodeLock.delegate = self
         notificationCenter = NotificationCenter.default

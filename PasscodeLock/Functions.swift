@@ -17,9 +17,8 @@ func localizedStringFor(key: String, comment: String) -> String {
 }
 
 func bundleForResource(name: String, ofType type: String) -> Bundle {
-
-    if(Bundle.main.path(forResource: name, ofType: type) != nil) {
-        return Bundle.main
+    if Bundle.main.path(forResource: name, ofType: type) != nil {
+        return .main
     }
 
     return Bundle(for: PasscodeLock.self)
