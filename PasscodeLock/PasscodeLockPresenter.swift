@@ -12,8 +12,12 @@ open class PasscodeLockPresenter {
     
     private var mainWindow: UIWindow?
     
-    private lazy var passcodeLockWindow = UIWindow(frame: UIScreen.main.bounds)
-        
+    private lazy var passcodeLockWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.accessibilityLabel = "PasscodeLock Window"
+        return window
+    }()
+
     private let passcodeConfiguration: PasscodeLockConfigurationType
     open var isPasscodePresented = false
     public let passcodeLockVC: PasscodeLockViewController
