@@ -11,7 +11,7 @@ import LocalAuthentication
 
 open class PasscodeLock: PasscodeLockType {
     open weak var delegate: PasscodeLockTypeDelegate?
-    open let configuration: PasscodeLockConfigurationType
+    public let configuration: PasscodeLockConfigurationType
 
     open var repository: PasscodeRepositoryType {
         return configuration.repository
@@ -25,8 +25,8 @@ open class PasscodeLock: PasscodeLockType {
         return isTouchIDEnabled() && configuration.isTouchIDAllowed && lockState.isTouchIDAllowed
     }
 
-    fileprivate var lockState: PasscodeLockStateType
-    fileprivate lazy var passcode = String()
+    private var lockState: PasscodeLockStateType
+    private lazy var passcode = String()
 
     public init(state: PasscodeLockStateType, configuration: PasscodeLockConfigurationType) {
         precondition(configuration.passcodeLength > 0, "Passcode length sould be greather than zero.")
@@ -52,8 +52,11 @@ open class PasscodeLock: PasscodeLockType {
     }
 
     open func changeState(_ state: PasscodeLockStateType) {
-        lockState = state
-        delegate?.passcodeLockDidChangeState(self)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.lockState = state
+            strongSelf.delegate?.passcodeLockDidChangeState(strongSelf)
+        }
     }
 
     open func authenticateWithTouchID() {
@@ -71,14 +74,14 @@ open class PasscodeLock: PasscodeLockType {
         }
     }
 
-    fileprivate func handleTouchIDResult(_ success: Bool) {
+    private func handleTouchIDResult(_ success: Bool) {
         DispatchQueue.main.async { [weak self] in
             guard success, let strongSelf = self else { return }
             strongSelf.delegate?.passcodeLockDidSucceed(strongSelf)
         }
     }
 
-    fileprivate func isTouchIDEnabled() -> Bool {
+    private func isTouchIDEnabled() -> Bool {
         let context = LAContext()
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }

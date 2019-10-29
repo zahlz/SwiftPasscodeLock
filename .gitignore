@@ -14,3 +14,6 @@ DerivedData
 # Sublime
 *.sublime-project
 *.sublime-workspace
+
+Carthage/Checkouts
+Carthage/Build

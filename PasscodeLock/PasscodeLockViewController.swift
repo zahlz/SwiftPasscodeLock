@@ -25,6 +25,12 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         }
     }
 
+    private static var nibName: String { return "PasscodeLockView" }
+
+    open class var nibBundle: Bundle {
+        return bundleForResource(name: nibName, ofType: "nib")
+    }
+
     @IBOutlet open var placeholders: [PasscodeSignPlaceholderView] = [PasscodeSignPlaceholderView]()
     @IBOutlet open weak var titleLabel: UILabel?
     @IBOutlet open weak var descriptionLabel: UILabel?
@@ -42,7 +48,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     internal var passcodeLock: PasscodeLockType
     internal var isPlaceholdersAnimationCompleted = true
 
-    fileprivate var shouldTryToAuthenticateWithBiometrics = true
+    private var shouldTryToAuthenticateWithBiometrics = true
 
     // MARK: - Initializers
 
@@ -52,10 +58,8 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeConfiguration = configuration
         passcodeLock = PasscodeLock(state: state, configuration: configuration)
 
-        let nibName = "PasscodeLockView"
-        let bundle: Bundle = bundleForResource(name: nibName, ofType: "nib")
-
-        super.init(nibName: nibName, bundle: bundle)
+        let this = type(of: self)
+        super.init(nibName: this.nibName, bundle: this.nibBundle)
 
         passcodeLock.delegate = self
         notificationCenter = NotificationCenter.default
@@ -104,14 +108,14 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
 
     // MARK: - Events
 
-    fileprivate func setupEvents() {
-        notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appWillEnterForegroundHandler(_:)), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
-        notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appDidEnterBackgroundHandler(_:)), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+    private func setupEvents() {
+        notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appWillEnterForegroundHandler(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+        notificationCenter?.addObserver(self, selector: #selector(PasscodeLockViewController.appDidEnterBackgroundHandler(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 
-    fileprivate func clearEvents() {
-        notificationCenter?.removeObserver(self, name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        notificationCenter?.removeObserver(self, name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+    private func clearEvents() {
+        notificationCenter?.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+        notificationCenter?.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 
     @objc open func appWillEnterForegroundHandler(_ notification: Notification) {
@@ -142,7 +146,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeLock.authenticateWithTouchID()
     }
 
-    fileprivate func authenticateWithTouchID() {
+    private func authenticateWithTouchID() {
         if passcodeConfiguration.shouldRequestTouchIDImmediately && passcodeLock.isTouchIDAllowed {
             passcodeLock.authenticateWithTouchID()
         }
@@ -195,7 +199,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         placeholders.forEach { $0.animateState(state) }
     }
 
-    fileprivate func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
+    private func animatePlacehodlerAtIndex(_ index: Int, toState state: PasscodeSignPlaceholderView.State) {
         guard index < placeholders.count && index >= 0 else { return }
 
         placeholders[index].animateState(state)

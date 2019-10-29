@@ -10,13 +10,17 @@ import UIKit
 
 open class PasscodeLockPresenter {
     
-    fileprivate var mainWindow: UIWindow?
+    private var mainWindow: UIWindow?
     
-    fileprivate lazy var passcodeLockWindow = UIWindow(frame: UIScreen.main.bounds)
-        
-    fileprivate let passcodeConfiguration: PasscodeLockConfigurationType
+    private lazy var passcodeLockWindow: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.accessibilityLabel = "PasscodeLock Window"
+        return window
+    }()
+
+    private let passcodeConfiguration: PasscodeLockConfigurationType
     open var isPasscodePresented = false
-    open let passcodeLockVC: PasscodeLockViewController
+    public let passcodeLockVC: PasscodeLockViewController
     
     public init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType, viewController: PasscodeLockViewController) {
         
@@ -71,19 +75,16 @@ open class PasscodeLockPresenter {
     }
     
     internal func animatePasscodeLockDismissal() {
-        
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
             usingSpringWithDamping: 1,
             initialSpringVelocity: 0,
-            options: UIViewAnimationOptions(),
+            options: [],
             animations: { [weak self] in
-                
                 self?.passcodeLockWindow.alpha = 0
             },
             completion: { [weak self] _ in
-                
                 self?.passcodeLockWindow.isHidden = true
                 self?.passcodeLockWindow.rootViewController = nil
                 self?.passcodeLockWindow.alpha = 1
@@ -91,9 +92,9 @@ open class PasscodeLockPresenter {
         )
     }
 
-    fileprivate func moveWindowsToFront() {
-        let windowLevel = UIApplication.shared.windows.last?.windowLevel ?? UIWindowLevelNormal
-        let maxWinLevel = max(windowLevel, UIWindowLevelNormal)
+    private func moveWindowsToFront() {
+        let windowLevel = UIApplication.shared.windows.last?.windowLevel ?? UIWindow.Level.normal
+        let maxWinLevel = max(windowLevel, .normal)
         passcodeLockWindow.windowLevel =  maxWinLevel + 1
     }
 }
